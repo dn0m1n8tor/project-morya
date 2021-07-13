@@ -35,10 +35,14 @@ cat $DOMAIN_wayback.txt $DOMAIN_gauplus.txt | sort -u >> $DOMAIN_final_urls.txt
 figlet "JS-SCAN"
 printf "[-] JS-scan started \n" | notify -silent
 cat $DOMAIN_final_urls.txt | grep "\.js" | sed 's/?.*//' | sort -u >> $DOMAIN_JS_files.txt
+
 for j in $(cat $DOMAIN_JS_files.txt)
 do
 python3 /home/ubuntu/tools/LinkFinder/linkfinder.py -i $j -o cli >> $DOMAIN_js_secrets.txt
 done
+
+cat subdomains | httpx -silent | subjs | anew | httpx -silent -sr -mc 200 
+grep -EHirn "accesskey|admn|aes|api_key|apikey|password|secret|token" ./JS_Juicy_output --color
 
 figlet "GF pattern"
 printf "[-] GF pattern started \n" | notify -silent
