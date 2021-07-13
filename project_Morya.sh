@@ -32,7 +32,7 @@ dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolve
 printf "Starting Subdomain Enumeration\n" | nofity
 
 printf "Running Subfinder\n" | nofity
-subfinder -d $DOMAIN -all --silent -config ../config_files/subfinder_config.yaml -o allsubs1.txt
+subfinder -d $DOMAIN -all --silent -config ../../config_files/subfinder_config.yaml -o allsubs1.txt
 
 printf "Running CRT.sh\n" | nofity
 curl "https://crt.sh/?q=$DOMAIN&output=json" | jq -r ".[] | .name_value" >>allsubs2.txt
@@ -55,7 +55,7 @@ sd-goo.sh $DOMAIN | sort -u >>allsubs5.txt
 # done
 
 printf "Running Amassn" | nofity
-amass enum -passive -d $DOMAIN -config ../config_files/config.ini -o allsubs7.txt
+amass enum -passive -d $DOMAIN -config ../../config_files/config.ini -o allsubs7.txt
 
 printf "Running gauplus\n" | nofity
 gauplus -t 5 -random-agent -subs $DOMAIN | unfurl -u domains | sort -u >>allsubs8.txt
@@ -64,7 +64,7 @@ printf "Running Waybackurls\n" | nofity
 waybackurls $DOMAIN | unfurl -u domains | sort -u >>allsubs9.txt
 
 printf "Running Github-subdomains\n" | nofity
-github-subdomains -d $DOMAIN -t ../config_files/tokens.txt -o allsubs10.txt
+github-subdomains -d $DOMAIN -t ../../config_files/tokens.txt -o allsubs10.txt
 
 printf "Running crobat\n" | nofity
 crobat -s $DOMAIN >>allsubs11.txt
