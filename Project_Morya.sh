@@ -100,3 +100,6 @@ sort subdomains.txt allsub16.txt | uniq -u >>subdomains.txt
 # unimap --fast-scan -f subdomains.txt --ports $COMMON_PORTS_WEB -q -k --url-output >unimap_commonweb.txt
 # cat unimap_commonweb.txt | httpx -random-agent -status-code -silent -retries 2 -no-color | cut -d ' ' -f1 >>probed_common_ports.txt
 # rm unimap_commonweb.txt
+
+
+printf "Subdomain Enumeration Completed" | nofity
