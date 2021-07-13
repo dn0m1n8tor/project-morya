@@ -21,16 +21,16 @@ printf "[-] waybackurls started crawling\n" | notify --silent
 cat subdomains.txt | waybackurls > $DOMAIN_wayback.txt
 printf "[+] waybackurls completed crawling\n" | notify --silent 
 
-figlet "Gau"
-printf "[-] gau started crawling\n" | notify -silent
-cat subdomains.txt | gau > $DOMAIN_gau.txt
-printf "[+] gau completed crawling\n" | notify -silent
+figlet "gauplus"
+printf "[-] gauplus started crawling\n" | notify -silent
+cat subdomains.txt | gauplus > $DOMAIN_gauplus.txt
+printf "[+] gauplus completed crawling\n" | notify -silent
 
 printf "[-] paramspider started crawling\n" | notify -silent
 python3 /home/ubuntu/tools/ParamSpider/paramspider.py -d $DOMAIN -silent -o $DOMAIN-param.txt
 printf "[+] paramspider completed crawling\n" | notify -silent
 
-cat $DOMAIN_wayback.txt $DOMAIN_gau.txt | sort -u >> $DOMAIN_final_urls.txt
+cat $DOMAIN_wayback.txt $DOMAIN_gauplus.txt | sort -u >> $DOMAIN_final_urls.txt
 
 figlet "JS-SCAN"
 printf "[-] JS-scan started \n" | notify -silent
@@ -62,7 +62,6 @@ mkdir kxss
 cat $DOMAIN_final_urls.txt | kxss >> kxss/final-kxss.txt
 cat rohit/param-rohit.txt | kxss >> kxss/param-kxss.txt
 printf "[+] kxss scan completed\n" | notify -silent
-
 
 figlet "Nuclei"
 printf "[-] Nuclei scan for XSS started\n" | notify -silent
