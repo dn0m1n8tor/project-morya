@@ -55,7 +55,7 @@ sd-goo.sh $DOMAIN | sort -u >>allsubs5.txt
 # done
 
 printf "Running Amassn" | notify --silent
-amass enum -passive -d $DOMAIN -config ../../config_files/config.ini -o allsubs7.txt
+amass enum -passive -d $DOMAIN -config ../../config_files/config.ini -o allsubs7.txt -timeout 30
 
 printf "Running gauplus\n" | notify --silent
 gauplus -t 5 -random-agent -subs $DOMAIN | unfurl -u domains | sort -u >>allsubs8.txt
@@ -76,6 +76,7 @@ printf "Running dns.bufferover\n" | notify --silent
 curl "https://dns.bufferover.run/dns?q=$DOMAIN" | jq -r .FDNS_A'[]',.RDNS'[]' | cut -d ',' -f2 | grep -F "$DOMAIN" | sort -u >>allsubs13.txt
 
 printf "Running Puredns\n" | notify --silent
+dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt --silent
 puredns bruteforce ../../config_files/best-dns-wordlist.txt $DOMAIN -r resolvers.txt -w allsubs14.txt --wildcard-batch 1000000
 
 printf "Sorting Colleted Subdomains\n" | notify --silent
@@ -84,6 +85,7 @@ sort allsubs*.txt | uniq -u >>subdomains.txt
 printf "Running DNSCewl\n" | notify --silent
 DNScewl --tL subdomains.txt -p ../../config_files/permutations_list.txt --level=0 --subs --no-color | tail -n +14 >permutations.txt
 printf "Running Puredns for resolving permutatuon subdomains\n"
+dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt --silent
 puredns resolve permutations.txt -r resolvers.txt --wildcard-batch 1000000 -w allsubs15.txt
 rm permutations.txt
 
