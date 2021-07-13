@@ -76,13 +76,13 @@ printf "Running dns.bufferover\n" | notify
 curl "https://dns.bufferover.run/dns?q=$DOMAIN" | jq -r .FDNS_A'[]',.RDNS'[]' | cut -d ',' -f2 | grep -F "$DOMAIN" | sort -u >>allsubs13.txt
 
 printf "Running Puredns\n" | notify
-puredns bruteforce best-dns-wordlist.txt $DOMAIN -r resolvers.txt -w allsubs14.txt --wildcard-batch 1000000
+puredns bruteforce ../../config_files/best-dns-wordlist.txt $DOMAIN -r resolvers.txt -w allsubs14.txt --wildcard-batch 1000000
 
 printf "Sorting Colleted Subdomains\n" | notify
 sort allsubs*.txt | uniq -u >>subdomains.txt
 
 printf "Running DNSCewl\n" | notify
-DNScewl --tL subdomains.txt -p permutations_list.txt --level=0 --subs --no-color | tail -n +14 >permutations.txt
+DNScewl --tL subdomains.txt -p ../../config_files/permutations_list.txt --level=0 --subs --no-color | tail -n +14 >permutations.txt
 printf "Running Puredns for resolving permutatuon subdomains\n"
 puredns resolve permutations.txt -r resolvers.txt --wildcard-batch 1000000 -w allsubs15.txt
 rm permutations.txt
@@ -101,5 +101,4 @@ sort subdomains.txt allsub16.txt | uniq -u >>subdomains.txt
 # cat unimap_commonweb.txt | httpx -random-agent -status-code -silent -retries 2 -no-color | cut -d ' ' -f1 >>probed_common_ports.txt
 # rm unimap_commonweb.txt
 
-
-printf "Subdomain Enumeration Completed" | notify
+printf "\nSubdomain Enumeration Completed" | notify
