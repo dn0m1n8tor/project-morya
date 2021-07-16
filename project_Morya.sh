@@ -35,7 +35,7 @@ printf "Running Subfinder\n" | notify --silent
 subfinder -d $DOMAIN -all --silent -config ../../config_files/subfinder_config.yaml -o allsubs1.txt
 
 printf "Running CRT.sh\n" | notify --silent
-curl "https://crt.sh/?q=$DOMAIN&output=json" | jq -r ".[] | .name_value" >>allsubs2.txt
+python3 /home/ubuntu/tools/ctfr/ctfr.py -d $DOMAIN -o allsubs2.txt
 
 printf "Running AssetFinder\n" | notify --silent
 assetfinder $DOMAIN >>allsubs3.txt
