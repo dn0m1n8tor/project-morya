@@ -17,6 +17,8 @@ printf "\n\n"
 printf "\nPlease enter a domain : "
 read DOMAIN
 
+printf "==================================STARTED=================================="  | notify --silent
+
 printf "Domain provide to us: $DOMAIN\n"
 printf "Creating directory ${DOMAIN}_recon\n"
 
