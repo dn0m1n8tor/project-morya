@@ -50,7 +50,7 @@ findomain -t $DOMAIN -u allsubs4.txt
 wc -l allsubs4.txt | awk '{print $1 " subdomains founded by Finddomain"}' | notify --silent
 
 printf "Running sd-goo.sh (Domains from google search)\n" | notify --silent
-sd-goo.sh $DOMAIN | sort -u >>allsubs5.txt
+sd-goo.sh $DOMAIN | anew allsubs5.txt
 wc -l allsubs5.txt | awk '{print $1 " subdomains founded by sd-goo.sh"}' | notify --silent
 
 # printf "---------Running Shodan to find---------\n" | notify --silent
@@ -66,11 +66,11 @@ amass enum -passive -d $DOMAIN -config /home/ubuntu/automation/config_files/conf
 wc -l allsubs7.txt | awk '{print $1 " subdomains founded by Amass"}'  | notify --silent
 
 printf "Running gauplus\n" | notify --silent
-gauplus -t 5 -random-agent -subs $DOMAIN | unfurl -u domains | sort -u >>allsubs8.txt
+gauplus -t 5 -random-agent -subs $DOMAIN | unfurl -u domains | anew allsubs8.txt
 wc -l allsubs8.txt | awk '{print $1 " subdomains founded by gauplus"}'  | notify --silent
 
 printf "Running Waybackurls\n" | notify --silent
-waybackurls $DOMAIN | unfurl -u domains | sort -u >>allsubs9.txt
+waybackurls $DOMAIN | unfurl -u domains | anew allsubs9.txt
 wc -l allsubs9.txt | awk '{print $1 " subdomains founded by Waybackurls"}'  | notify --silent
 
 printf "Running Github-subdomains\n" | notify --silent
@@ -82,11 +82,11 @@ crobat -s $DOMAIN >>allsubs11.txt
 wc -l allsubs11.txt | awk '{print $1 " subdomains founded by crobat"}' | notify --silent
 
 printf "Running tls.bufferover\n" | notify --silent
-curl "https://tls.bufferover.run/dns?q=$DOMAIN" | jq -r .Results'[]' | cut -d ',' -f3 | grep -F "$DOMAIN" | sort -u >>allsubs12.txt
+curl "https://tls.bufferover.run/dns?q=$DOMAIN" | jq -r .Results'[]' | cut -d ',' -f3 | grep -F "$DOMAIN" | anew allsubs12.txt
 wc -l allsubs12.txt | awk '{print $1 " subdomains founded by tls.bufferover"}' | notify --silent
 
 printf "Running dns.bufferover\n" | notify --silent
-curl "https://dns.bufferover.run/dns?q=$DOMAIN" | jq -r .FDNS_A'[]',.RDNS'[]' | cut -d ',' -f2 | grep -F "$DOMAIN" | sort -u >>allsubs13.txt
+curl "https://dns.bufferover.run/dns?q=$DOMAIN" | jq -r .FDNS_A'[]',.RDNS'[]' | cut -d ',' -f2 | grep -F "$DOMAIN" | anew allsubs13.txt
 wc -l allsubs13.txt | awk '{print $1 " subdomains founded by dns.bufferover"}' | notify --silent
 
 printf "Running Puredns\n" | notify --silent
@@ -95,7 +95,7 @@ puredns bruteforce ../../config_files/best-dns-wordlist.txt $DOMAIN -r resolvers
 wc -l allsubs14.txt | awk '{print $1 " subdomains founded by Puredns"}' | notify --silent
 
 printf "Sorting Colleted Subdomains\n" | notify --silent
-sort allsubs*.txt | uniq -u >>subdomains.txt
+cat allsubs*.txt | anew subdomains.txt
 wc -l subdomains.txt | awk '{print $1 " subdomains are founded"}' | notify --silent
 
 printf "Running DNSCewl\n" | notify --silent
@@ -105,15 +105,16 @@ dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolve
 puredns resolve permutations.txt -r resolvers.txt --wildcard-batch 1000000 -w allsubs15.txt
 wc -l allsubs15.txt | awk '{print $1 " subdomains founded by DNScewl and Puredns"}' | notify --silent
 rm permutations.txt
-sort subdomains.txt allsub15.txt | uniq -u >>subdomains.txt
+cat allsub15.txt | anew subdomains.txt
 
 printf "Scraping Subdomains from JS/Source code\n" | notify --silent
 cat subdomains.txt | httpx -random-agent -retries 2 -no-color -o probed_tmp_scrap.txt
 gospider -S probed_tmp_scrap.txt --js -t 50 -d 3 --sitemap --robots -w -r >gospider.txt
 sed -i '/^.\{2048\}./d' gospider.txt
-cat gospider.txt | grep -Eo 'https?://[^ ]+' | sed 's/]$//' | unfurl -u domains | grep ".$DOMAIN" | sort -u >>allsubs16.txt
+cat gospider.txt | grep -Eo 'https?://[^ ]+' | sed 's/]$//' | unfurl -u domains | grep ".$DOMAIN" | anew allsubs16.txt
 rm gospider.txt
-sort subdomains.txt allsub16.txt | uniq -u >>subdomains.txt
+cat allsub16.txt | anew subdomains.txt
+
 wc -l subdomains.txt | awk '{print $1 " are total subdomains founded by Project Morya"}'  | notify --silent
 
 # echo "Probing on common ports \n" | notify --silent
