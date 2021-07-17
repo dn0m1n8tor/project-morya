@@ -105,7 +105,7 @@ dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolve
 puredns resolve permutations.txt -r resolvers.txt --wildcard-batch 1000000 -w allsubs15.txt
 wc -l allsubs15.txt | awk '{print $1 " subdomains founded by DNScewl and Puredns"}' | notify --silent
 rm permutations.txt
-cat allsub15.txt | anew subdomains.txt
+cat allsubs15.txt | anew subdomains.txt
 
 printf "Scraping Subdomains from JS/Source code\n" | notify --silent
 cat subdomains.txt | httpx -random-agent -retries 2 -no-color -o probed_tmp_scrap.txt
@@ -113,7 +113,7 @@ gospider -S probed_tmp_scrap.txt --js -t 50 -d 3 --sitemap --robots -w -r >gospi
 sed -i '/^.\{2048\}./d' gospider.txt
 cat gospider.txt | grep -Eo 'https?://[^ ]+' | sed 's/]$//' | unfurl -u domains | grep ".$DOMAIN" | anew allsubs16.txt
 rm gospider.txt
-cat allsub16.txt | anew subdomains.txt
+cat allsubs16.txt | anew subdomains.txt
 
 wc -l subdomains.txt | awk '{print $1 " are total subdomains founded by Project Morya"}'  | notify --silent
 
@@ -123,4 +123,10 @@ wc -l subdomains.txt | awk '{print $1 " are total subdomains founded by Project 
 # cat unimap_commonweb.txt | httpx -random-agent -status-code -silent -retries 2 -no-color | cut -d ' ' -f1 >>probed_common_ports.txt
 # rm unimap_commonweb.txt
 
-printf "\nSubdomain Enumeration Completed" | notify --silent
+mkdir trash
+mv allsub* trash/
+mv resolvers.txt trash/
+mv probed_tmp_scrap.txt trash/
+mv gsd* trash/
+
+printf "\n=====================Subdomain Enumeration Completed=====================" | notify --silent
