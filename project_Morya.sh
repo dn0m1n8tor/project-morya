@@ -62,7 +62,7 @@ wc -l allsubs5.txt | awk '{print $1 " subdomains founded by sd-goo.sh"}' | notif
 # done
 
 printf "Running Amass" | notify --silent
-amass enum -passive -d $DOMAIN -config /home/ubuntu/automation/config_files/config.ini -o allsubs7.txt -timeout 30
+amass enum -passive -d $DOMAIN -config /home/ubuntu/automation/config_files/config.ini -timeout 30 -o allsubs7.txt 
 wc -l allsubs7.txt | awk '{print $1 " subdomains founded by Amass"}'  | notify --silent
 
 printf "Running gauplus\n" | notify --silent
