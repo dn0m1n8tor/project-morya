@@ -111,7 +111,7 @@ printf "Scraping Subdomains from JS/Source code\n" | notify --silent
 cat subdomains.txt | httpx -random-agent -retries 2 -no-color -o probed_tmp_scrap.txt
 gospider -S probed_tmp_scrap.txt --js -t 50 -d 3 --sitemap --robots -w -r >gospider.txt
 sed -i '/^.\{2048\}./d' gospider.txt
-cat gospider.txt | grep -Eo 'https?://[^ ]+' | sed 's/]$//' | unfurl -u domains | grep ".$DOMAIN" | sort -u >>allsub16.txt
+cat gospider.txt | grep -Eo 'https?://[^ ]+' | sed 's/]$//' | unfurl -u domains | grep ".$DOMAIN" | sort -u >>allsubs16.txt
 rm gospider.txt
 sort subdomains.txt allsub16.txt | uniq -u >>subdomains.txt
 wc -l subdomains.txt | awk '{print $1 " are total subdomains founded by Project Morya"}'  | notify --silent
