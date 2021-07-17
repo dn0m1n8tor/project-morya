@@ -29,7 +29,7 @@ mkdir Subdomains
 cd Subdomains
 
 printf "Collecting DNS_Resolvers\n" | notify --silent
-dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt --silent
+dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt
 
 printf "Starting Subdomain Enumeration\n" | notify --silent
 
@@ -90,7 +90,7 @@ curl "https://dns.bufferover.run/dns?q=$DOMAIN" | jq -r .FDNS_A'[]',.RDNS'[]' | 
 wc -l allsubs13.txt | awk '{print $1 " subdomains founded by dns.bufferover"}' | notify --silent
 
 printf "Running Puredns\n" | notify --silent
-dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt --silent
+dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt
 puredns bruteforce ../../config_files/best-dns-wordlist.txt $DOMAIN -r resolvers.txt -w allsubs14.txt --wildcard-batch 1000000
 wc -l allsubs14.txt | awk '{print $1 " subdomains founded by Puredns"}' | notify --silent
 
@@ -101,7 +101,7 @@ wc -l subdomains.txt | awk '{print $1 " subdomains are founded"}' | notify --sil
 printf "Running DNSCewl\n" | notify --silent
 DNScewl --tL subdomains.txt -p /home/ubuntu/automation/config_files/permutations_list.txt --level=0 --subs --no-color | tail -n +14 >permutations.txt
 printf "Running Puredns for resolving permutatuon subdomains\n"  | notify --silent
-dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt --silent
+dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt
 puredns resolve permutations.txt -r resolvers.txt --wildcard-batch 1000000 -w allsubs15.txt
 wc -l allsubs15.txt | awk '{print $1 " subdomains founded by DNScewl and Puredns"}' | notify --silent
 rm permutations.txt
