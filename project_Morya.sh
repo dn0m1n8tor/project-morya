@@ -103,6 +103,7 @@ DNScewl --tL subdomains.txt -p /home/ubuntu/automation/config_files/permutations
 printf "Running Puredns for resolving permutatuon subdomains\n"  | notify --silent
 dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt
 puredns resolve permutations.txt -r resolvers.txt --wildcard-batch 1000000 -w allsubs15.txt
+cat allsubs15.txt | grep "${DOMAIN}" >> allsubs15.txt
 wc -l allsubs15.txt | awk '{print $1 " subdomains founded by DNScewl and Puredns"}' | notify --silent
 rm permutations.txt
 cat allsubs15.txt | anew subdomains.txt
