@@ -41,10 +41,10 @@ mkdir vulnerability
 RUNNING_PATH=`pwd`
 
 subdomain_enumeration
+subdomain_takeover
 wayback_urls
 nuclei
-xss_hunter
 dirsearch
-subdomain_takeover
+xss_hunter
 
 prinf "Work is completed Anubhav" | notify --silent
