@@ -1,5 +1,7 @@
 #!/bin/bash
 
+nuclei()
+{
 printf "=====================" | notify --silent
 printf "Running Nuclei on $DOMAIN" | notify --silent
 sleep 2
@@ -87,3 +89,4 @@ printf "=====================" | notify --silent
 prinf "\nScan is completed" | notify --silent
 sleep 2
 printf "=====================" | notify --silent
+}
