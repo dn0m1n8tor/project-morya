@@ -47,4 +47,4 @@ nuclei
 dirsearch
 xss_hunter
 
-prinf "Work is completed Anubhav" | notify --silent
+printf "Work is completed Anubhav" | notify --silent
