@@ -20,11 +20,16 @@ read DOMAIN
 printf "==================================STARTED=================================="  | notify --silent
 
 printf "Domain provide to us: $DOMAIN\n"
+TODAY=`date --date='+5 hour 30 minutes' '+%d/%b/%y %r'`
+printf "Scanning is started at ${TODAY}"
 printf "Creating directory ${DOMAIN}_recon\n"
 
 Directory="${DOMAIN}_recon"
 mkdir $Directory
 cd $Directory
+
+subdomain_enumeration()
+{
 mkdir subdomains
 cd subdomains
 
@@ -141,3 +146,6 @@ rm unimap_commonweb.txt trash/
 mv gsd* trash/
 
 printf "\n=====================Subdomain Enumeration Completed=====================" | notify --silent
+}
+
+subdomain_enumeration
