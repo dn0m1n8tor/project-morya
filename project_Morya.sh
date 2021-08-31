@@ -30,6 +30,7 @@ printf "Creating directory ${DOMAIN}_recon\n" | notify --silent
 Directory="${DOMAIN}_recon"
 mkdir $Directory
 cd $Directory
+mkdir vulnerability
 
 subdomain_enumeration()
 {
