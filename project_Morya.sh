@@ -31,9 +31,11 @@ Directory="${DOMAIN}_recon"
 mkdir $Directory
 cd $Directory
 mkdir vulnerability
+RUNNING_PATH=`pwd`
 
 subdomain_enumeration()
 {
+cd ${RUNNING_PATH}
 mkdir subdomains
 cd subdomains
 
