@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 dirsearch()
 {
 printf "==============" | notify --silent
