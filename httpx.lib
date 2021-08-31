@@ -12,4 +12,9 @@ cd ${RUNNING_PATH} && mkdir httpx && cd httpx
 cat ${RUNNING_PATH}/subdomains/actual_Subdomains.txt ${RUNNING_PATH}/subdomains/probed_common_ports.txt | httpx -status-code -title -content-length -follow-redirects | tee httpx.txt
 
 cat httpx.txt | awk '{print $1}' | tee probed.txt
+
+printf "==================" | notify --silent
+printf "httpx work is completed" | notify --silent
+sleep 2
+printf "==================" | notify --silent
 }
