@@ -87,8 +87,8 @@ cat allsubs11.txt | anew | tee allsubs11.txt
 wc -l allsubs11.txt | awk '{print $1 " subdomains founded by Github-subdomains"}'  | notify --silent
 
 # printf "Running crobat\n" | notify --silent
-# crobat -s $DOMAIN | anew allsubs11.txt
-# wc -l allsubs11.txt | awk '{print $1 " subdomains founded by crobat"}' | notify --silent
+# crobat -s $DOMAIN | anew allsubs12.txt
+# wc -l allsubs12.txt | awk '{print $1 " subdomains founded by crobat"}' | notify --silent
 
 printf "Running tls.bufferover\n" | notify --silent
 curl "https://tls.bufferover.run/dns?q=$DOMAIN" | jq -r .Results'[]' | cut -d ',' -f3 | grep -F "$DOMAIN" | anew allsubs13.txt
@@ -120,9 +120,9 @@ cat allsubs16.txt | anew subdomains.txt
 
 printf "Scraping Subdomains from JS/Source code\n" | notify --silent
 cat subdomains.txt | httpx -random-agent -retries 2 -no-color -o probed_tmp_scrap.txt
-timeout 20min gospider -S probed_tmp_scrap.txt --js -t 50 -d 3 --sitemap --robots -w -r | tee gospider.txt
+timeout 20m gospider -S probed_tmp_scrap.txt --js -t 50 -d 3 --sitemap --robots -w -r | tee gospider.txt
 sed -i '/^.\{2048\}./d' gospider.txt
-cat gospider.txt | grep -Eo 'https?://[^ ]+' | sed 's/]$//' | unfurl -u domains | grep ".$DOMAIN" | anew allsubs17.txt
+cat gospider.txt | grep -Eo 'https?://[^ ]+' | sed 's/]$//' | unfurl -u domains | grep "\.${DOMAIN}" | anew allsubs17.txt
 rm gospider.txt
 cat allsubs17.txt | anew subdomains.txt
 
@@ -131,13 +131,13 @@ wc -l subdomains.txt | awk '{print $1 " are total subdomains founded by Project 
 echo "Probing on common ports \n" | notify --silent
 COMMON_PORTS_WEB="81,300,591,593,832,981,1010,1311,1099,2082,2095,2096,2480,3000,3128,3333,4243,4567,4711,4712,4993,5000,5104,5108,5280,5281,5601,5800,6543,7000,7001,7396,7474,8000,8001,8008,8014,8042,8060,8069,8080,8081,8083,8088,8090,8091,8095,8118,8123,8172,8181,8222,8243,8280,8281,8333,8337,8443,8500,8834,8880,8888,8983,9000,9001,9043,9060,9080,9090,9091,9200,9443,9502,9800,9981,10000,10250,11371,12443,15672,16080,17778,18091,18092,20720,32000,55440,55672"
 unimap --fast-scan -f subdomains.txt --ports $COMMON_PORTS_WEB -q -k --url-output >unimap_commonweb.txt
-cat unimap_commonweb.txt | httpx -random-agent -status-code -silent -retries 2 -no-color | cut -d ' ' -f1 >>probed_common_ports.txt
-rm unimap_commonweb.txt
+cat unimap_commonweb.txt | httpx -random-agent -status-code -silent -retries 2 -no-color | cut -d ' ' -f1 | anew probed_common_ports.txt
 
 mkdir trash
 mv allsub* trash/
 mv resolvers.txt trash/
 mv probed_tmp_scrap.txt trash/
+rm unimap_commonweb.txt trash/
 mv gsd* trash/
 
 printf "\n=====================Subdomain Enumeration Completed=====================" | notify --silent
