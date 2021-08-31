@@ -17,7 +17,10 @@ printf "\n\n"
 printf "\nPlease enter a domain : "
 read DOMAIN
 
-printf "==================================STARTED=================================="  | notify --silent
+printf "\n==========================" | notify --silent
+printf "\nProject is started" | notify --silent
+sleep 2
+printf "\n==========================" | notify --silent
 
 printf "Domain provide to us: $DOMAIN\n" | notify --silent
 TODAY=`date --date='+5 hour 30 minutes' '+%d/%b/%y %r'`
@@ -36,7 +39,10 @@ cd subdomains
 printf "Collecting DNS_Resolvers\n" | notify --silent
 dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt
 
-printf "Starting Subdomain Enumeration\n" | notify --silent
+printf "\n==============================" | notify --silent
+printf "\nStarting Subdomain Enumeration" | notify --silent
+sleep 2
+printf "\n==============================" | notify --silent
 
 printf "Running Subfinder\n" | notify --silent
 subfinder -d $DOMAIN -all --silent -config $HOME/.config/subfinder/config.yaml -o allsubs1.txt
@@ -61,16 +67,17 @@ printf "Running sd-goo.sh (Domains from google search)\n" | notify --silent
 sd-goo.sh $DOMAIN | anew allsubs5.txt
 wc -l allsubs5.txt | awk '{print $1 " subdomains founded by sd-goo.sh"}' | notify --silent
 
-# printf "---------Running Shodan to find---------\n" | notify --silent
-
-# shodan_dorks=(ssl.cert.subject.cn:$DOMAIN hostname:$DOMAIN org:$DOMAIN)
-# for i in "${shodan_dorks[@]}"; do
-# 	shodan search "$i" --fields ip_str,port --separator " " | awk '{print $1":"$2}' >>shodan_${DOMAIN}_ips.txt
-# 	cat shodan_${DOMAIN}_ips.txt | awk -F ':' '{print $1}' | dnsx -ptr -resp-only >>allsubs6.txt
-# done
+printf "---------Running Shodan to find---------\n" | notify --silent
+shodan_dorks=(ssl.cert.subject.cn:$DOMAIN hostname:$DOMAIN org:$DOMAIN)
+for i in "${shodan_dorks[@]}"; do
+	shodan search "$i" --fields ip_str,port --separator " " | awk '{print $1":"$2}' >>shodan_${DOMAIN}_ips.txt
+	cat shodan_${DOMAIN}_ips.txt | awk -F ':' '{print $1}' | dnsx -ptr -resp-only >>allsubs6.txt
+done
+cat allsubs6.txt | anew allsubs6.txt
+wc -l allsubs6.txt | awk '{print $1 " subdomains founded by Shodan"}'  | notify --silent
 
 # printf "Running Amass" | notify --silent
-# timeout 20m amass enum -passive -d $DOMAIN -config $HOME/.config/amass/config.ini -o allsubs7.txt
+# timeout 2m amass enum -passive -d $DOMAIN -config $HOME/.config/amass/config.ini -o allsubs7.txt
 # cat allsubs7.txt | anew allsubs7.txt
 # wc -l allsubs7.txt | awk '{print $1 " subdomains founded by Amass"}'  | notify --silent
 
@@ -137,17 +144,22 @@ wc -l actual_Subdomains.txt | awk '{print $1 " are total actual subdomains found
 
 echo "Probing on common ports \n" | notify --silent
 COMMON_PORTS_WEB="81,300,591,593,832,981,1010,1311,1099,2082,2095,2096,2480,3000,3128,3333,4243,4567,4711,4712,4993,5000,5104,5108,5280,5281,5601,5800,6543,7000,7001,7396,7474,8000,8001,8008,8014,8042,8060,8069,8080,8081,8083,8088,8090,8091,8095,8118,8123,8172,8181,8222,8243,8280,8281,8333,8337,8443,8500,8834,8880,8888,8983,9000,9001,9043,9060,9080,9090,9091,9200,9443,9502,9800,9981,10000,10250,11371,12443,15672,16080,17778,18091,18092,20720,32000,55440,55672"
-unimap --fast-scan -f subdomains.txt --ports $COMMON_PORTS_WEB -q -k --url-output >unimap_commonweb.txt
+sudo unimap --fast-scan -f subdomains.txt --ports $COMMON_PORTS_WEB -q -k --url-output | tee unimap_commonweb.txt
 cat unimap_commonweb.txt | httpx -random-agent -status-code -silent -retries 2 -no-color | cut -d ' ' -f1 | anew probed_common_ports.txt
 
 mkdir trash
 mv allsub* trash/
 mv resolvers.txt trash/
 mv probed_tmp_scrap.txt trash/
-rm unimap_commonweb.txt trash/
+mv unimap_commonweb.txt trash/
 mv gsd* trash/
+sudo mv unimap_logs/ trash/ 
+mv resume.cfg trash/
 
-printf "\n=====================Subdomain Enumeration Completed=====================" | notify --silent
+printf "\n==========================" | notify --silent
+printf "\nSubdomain Enumeration Completed" | notify --silent
+sleep 2
+printf "\n==========================" | notify --silent
 }
 
 subdomain_enumeration
