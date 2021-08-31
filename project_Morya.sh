@@ -155,6 +155,7 @@ mv unimap_commonweb.txt trash/
 mv gsd* trash/
 sudo mv unimap_logs/ trash/ 
 mv resume.cfg trash/
+cd ..
 
 printf "\n==========================" | notify --silent
 printf "\nSubdomain Enumeration Completed" | notify --silent
