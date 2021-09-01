@@ -1,5 +1,5 @@
 #!/bin/bash
-xss_hunter()
+xss_Hunter()
 {
     printf "==============" | notify --silent
     printf "XSS Hunter started" | notify --silent
