@@ -15,7 +15,7 @@ sleep 2
 printf "\n==============================" | notify --silent
 
 printf "Running Subfinder\n" | notify --silent
-subfinder -d $DOMAIN -all --silent -config $HOME/.config/subfinder/config.yaml -o allsubs1.txt
+subfinder -d $DOMAIN -all -recursive --silent -config $HOME/.config/subfinder/config.yaml -o allsubs1.txt
 cat allsubs1.txt | anew | tee allsubs1.txt
 wc -l allsubs1.txt | awk '{print $1 " subdomains founded by Subfinder"}' | notify --silent
 
