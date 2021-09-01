@@ -3,7 +3,7 @@ source ./wayback_urls.lib
 source ./xss_hunter.lib
 source ./subdomain_enumeration.lib
 source ./nuclei.lib
-source ./httpx.lib
+source ./probing.lib
 source ./dirsearch.lib
 source ./subdomain_takeover.lib
 
@@ -40,11 +40,12 @@ cd $Directory
 mkdir vulnerability
 RUNNING_PATH=`pwd`
 
-subdomain_enumeration
-subdomain_takeover
-wayback_urls
-nuclei
-dirsearch
-xss_hunter
+subdomain_Enumeration
+subdomain_Takeover
+wayback_Urls
+probing_Domains
+nuclei_Scanning
+dirsearch_Fuzzing
+xss_Hunter
 
 printf "Work is completed Anubhav" | notify --silent
