@@ -1,6 +1,6 @@
 #!/bin/bash
 
-nuclei()
+nuclei_Scanning()
 {
 printf "=====================" | notify --silent
 printf "Running Nuclei on $DOMAIN" | notify --silent
