@@ -43,12 +43,12 @@ for i in "${shodan_dorks[@]}"; do
 	shodan search "$i" --fields ip_str,port --separator " " | awk '{print $1":"$2}' >>shodan_${DOMAIN}_ips.txt
 	cat shodan_${DOMAIN}_ips.txt | awk -F ':' '{print $1}' | dnsx -ptr -resp-only >>allsubs6.txt
 done
-cat allsubs6.txt | anew allsubs6.txt
+cat allsubs6.txt | anew | tee allsubs6.txt
 wc -l allsubs6.txt | awk '{print $1 " subdomains founded by Shodan"}'  | notify --silent
 
 # printf "Running Amass" | notify --silent
 # timeout 2m amass enum -passive -d $DOMAIN -config $HOME/.config/amass/config.ini -o allsubs7.txt
-# cat allsubs7.txt | anew allsubs7.txt
+# cat allsubs7.txt | anew | tee allsubs7.txt
 # wc -l allsubs7.txt | awk '{print $1 " subdomains founded by Amass"}'  | notify --silent
 
 printf "Running gauplus\n" | notify --silent
@@ -83,7 +83,7 @@ wc -l allsubs14.txt | awk '{print $1 " subdomains founded by dns.bufferover"}' |
 printf "Running Puredns\n" | notify --silent
 dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt
 puredns bruteforce $HOME/wordlist/best-dns-wordlist.txt $DOMAIN -r resolvers.txt -w allsubs15.txt --wildcard-batch 1000000
-cat allsubs15.txt | anew allsubs15.txt
+cat allsubs15.txt | anew | tee allsubs15.txt
 wc -l allsubs15.txt | awk '{print $1 " subdomains founded by Puredns"}' | notify --silent
 
 printf "Sorting Colleted Subdomains\n" | notify --silent
@@ -95,7 +95,7 @@ DNScewl --tL subdomains.txt -p $HOME/wordlist/permutations_list.txt --level=0 --
 printf "Running Puredns for resolving permutatuon subdomains\n"  | notify --silent
 dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt
 puredns resolve permutations.txt -r resolvers.txt --wildcard-batch 1000000 -w allsubs16.txt
-cat allsubs16.txt | grep "\.${DOMAIN}" | anew allsubs16.txt
+cat allsubs16.txt | grep "\.${DOMAIN}" | anew | tee allsubs16.txt
 wc -l allsubs16.txt | awk '{print $1 " subdomains founded by DNScewl and Puredns"}' | notify --silent
 rm permutations.txt
 cat allsubs16.txt | anew subdomains.txt
