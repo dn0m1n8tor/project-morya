@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wayback_urls()
+wayback_Urls()
 
 {
     printf "=================" | notify --silent
