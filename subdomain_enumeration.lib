@@ -81,6 +81,7 @@ printf "Running dns.bufferover\n" | notify --silent
 curl "https://dns.bufferover.run/dns?q=$DOMAIN" | jq -r .FDNS_A'[]',.RDNS'[]' | cut -d ',' -f2 | grep -F "$DOMAIN" | anew allsubs14.txt
 wc -l allsubs14.txt | awk '{print $1 " subdomains founded by dns.bufferover"}' | notify --silent
 
+sleep 2
 printf "Running Puredns\n" | notify --silent
 dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 500 -o resolvers.txt
 puredns bruteforce $HOME/wordlist/best-dns-wordlist.txt $DOMAIN -r resolvers.txt -w puredns_bruteforce.txt --wildcard-batch 1000000
