@@ -124,7 +124,8 @@ wc -l probed_common_ports.txt | awk '{print $1 " are domains subdomains founded 
 mkdir trash
 mv allsub* trash/
 mv gsd* trash/
-sudo mv unimap_logs/ trash/ 
+sudo mv unimap_logs/ trash/
+# mv amass.txt trash/
 mv resolvers.txt subfinder.txt crt.txt assetFinder.txt finddomain.txt shodan_subs.txt amass.txt github-subdomains.txt puredns_bruteforce.txt puredns_permutation.txt probed_tmp_scrap.txt unimap_commonweb.txt resume.cfg trash/
 
 printf "\n==========================" | notify --silent
