@@ -1,6 +1,6 @@
 #!/bin/bash
 
-subdomain_takeover()
+subdomain_Takeover()
 {
 printf "=====================" | notify --silent
 printf "Running Subdomain takeover on $DOMAIN" | notify --silent
