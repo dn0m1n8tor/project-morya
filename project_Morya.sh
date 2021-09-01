@@ -25,7 +25,7 @@ printf "\nPlease enter a domain : "
 read DOMAIN
 
 printf "\n==========================" | notify --silent
-printf "\nProject is started" | notify --silent
+printf "\nProject Morya started" | notify --silent
 sleep 2
 printf "\n==========================" | notify --silent
 
