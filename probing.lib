@@ -1,6 +1,6 @@
 #!/bin/bash
 
-httpx()
+probing_Domains()
 {
 printf "=====================" | notify --silent
 printf "Running httpx on $DOMAIN" | notify --silent
