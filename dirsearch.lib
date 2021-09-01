@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dirsearch()
+dirsearch_Fuzzing()
 {
 printf "==============" | notify --silent
 printf "Dirsearch is started" | notify --silent
