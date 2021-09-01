@@ -1,6 +1,6 @@
 #!/bin/bash
 
-subdomain_enumeration()
+subdomain_Enumeration
 {
 cd ${RUNNING_PATH}
 mkdir subdomains
