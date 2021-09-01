@@ -126,7 +126,7 @@ mv allsub* trash/
 mv gsd* trash/
 sudo mv unimap_logs/ trash/
 # mv amass.txt trash/
-mv resolvers.txt subfinder.txt crt.txt assetFinder.txt finddomain.txt shodan_subs.txt amass.txt github-subdomains.txt puredns_bruteforce.txt puredns_permutation.txt probed_tmp_scrap.txt unimap_commonweb.txt resume.cfg trash/
+mv resolvers.txt subfinder.txt crt.txt assetFinder.txt finddomain.txt shodan_subs.txt shodan_${DOMAIN}_ips.txt github-subdomains.txt puredns_bruteforce.txt puredns_permutation.txt probed_tmp_scrap.txt unimap_commonweb.txt resume.cfg trash/
 
 printf "\n==========================" | notify --silent
 printf "\nSubdomain Enumeration Completed" | notify --silent
