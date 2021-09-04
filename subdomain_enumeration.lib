@@ -120,7 +120,7 @@ COMMON_PORTS_WEB="81,300,591,593,832,981,1010,1311,1099,2082,2095,2096,2480,3000
 sudo unimap --fast-scan -f actual_Subdomains.txt --ports $COMMON_PORTS_WEB -q -k --url-output | tee unimap_commonweb.txt
 cat unimap_commonweb.txt | httpx -random-agent -status-code -silent -retries 2 -no-color | cut -d ' ' -f1 | anew probed_common_ports.txt
 wc -l probed_common_ports.txt | awk '{print $1 " are domains subdomains founded by unimap"}'  | notify --silent
-subdomain_path=`pwd`/actual_Subdomains.txt
+#subdomain_path=`pwd`/actual_Subdomains.txt
 
 mkdir trash
 mv allsub* trash/
