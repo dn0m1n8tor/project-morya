@@ -21,6 +21,8 @@ printf "
                           ███ ░███                                                                   ███ ░███          
                          ░░██████                                                                   ░░██████           
                           ░░░░░░                                                                     ░░░░░░            	
+                                                                                                      
+                                                                                                      - @AnubhavSingh_
 "
 
 while getopts ":smah" arg; do
