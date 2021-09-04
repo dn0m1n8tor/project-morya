@@ -40,12 +40,34 @@ cd $Directory
 mkdir vulnerability
 RUNNING_PATH=`pwd`
 
-subdomain_Enumeration
-subdomain_Takeover
-wayback_Urls
-probing_Domains
-nuclei_Scanning
-dirsearch_Fuzzing
-xss_Hunter
+while getopts ":smah" arg; do
+  case "$arg" in
+  s)
+   subdomain_Enumeration
+   ;;
+  m)
+   subdomain_Enumeration
+   subdomain_Takeover
+   wayback_Urls
+   probing_Domains
+   nuclei_Scanning
+  ;;
+  a)
+   subdomain_Enumeration
+   subdomain_Takeover
+   wayback_Urls
+   probing_Domains
+   nuclei_Scanning
+   dirsearch_Fuzzing
+   xss_Hunter
+  ;;
+  h)
+  help_me
+  ;;
+  *)
+  printf "Please provide right argument for scan"
+  ;;
+  esac
+done
 
 printf "Work is completed Anubhav" | notify --silent
