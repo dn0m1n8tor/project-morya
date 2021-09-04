@@ -22,7 +22,7 @@ printf "
                          ░░██████                                                                   ░░██████           
                           ░░░░░░                                                                     ░░░░░░            	
                                                                                                       
-                                                                                                      - @AnubhavSingh_
+                                                                                              - Coded by @AnubhavSingh_
 "
 
 while getopts ":smah" arg; do
