@@ -1,0 +1,16 @@
+#!/bin/bash
+
+help_me()
+{
+help_print="Usage of Project Morya:
+
+  -s
+      for only subdomain enumeration
+  -m
+      for medium level scan [subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning]
+  -a
+      for advance level scan [subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning, dirsearch, xss scan]
+"
+
+printf "$help_print"
+}
