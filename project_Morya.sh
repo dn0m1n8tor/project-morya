@@ -7,6 +7,7 @@ source ./nuclei.lib
 source ./probing.lib
 source ./dirsearch.lib
 source ./subdomain_takeover.lib
+source ./help_me.lib
 
 printf "
  ███████████                   ███                   █████       ██████   ██████                                       
