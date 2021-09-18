@@ -2,10 +2,10 @@
 
 #============================================================================================
 #Download the Go binary
-wget https://golang.org/dl/go1.15.10.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.16.8.linux-amd64.tar.gz
 
 #Remove previous golang installation and extract the new one
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.15.10.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.8.linux-amd64.tar.gz
 
 #Copy the binary to be able to use for any user
 cp /usr/local/go/bin/go /usr/bin
