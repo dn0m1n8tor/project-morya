@@ -71,7 +71,7 @@ curl "https://tls.bufferover.run/dns?q=$DOMAIN" | jq -r .Results'[]' | rev | cut
 wc -l allsubs12.txt | awk '{print $1 " subdomains founded by tls.bufferover"}' | notify --silent
 
 printf "Running dns.bufferover\n" | notify --silent
-curl "https://dns.bufferover.run/dns?q=$DOMAIN" | jq -r .FDNS_A'[]',.RDNS'[]' | cut -d ',' -f2 | grep -F "$DOMAIN" | anew allsubs13.txt
+curl "https://dns.bufferover.run/dns?q=$DOMAIN" | jq -r .FDNS_A'[]',.RDNS'[]' | cut -d ',' -f2 | grep -F "\.$DOMAIN" | anew allsubs13.txt
 wc -l allsubs13.txt | awk '{print $1 " subdomains founded by dns.bufferover"}' | notify --silent
 
 sleep 2
