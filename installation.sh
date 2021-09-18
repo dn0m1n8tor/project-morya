@@ -168,4 +168,9 @@ cp kxss /usr/local/bin
 go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
 
 #==============================================================================================
+#Installing jq
+
+apt install jq
+
+#==============================================================================================
 printf "\n Tools are successfully Installed"
