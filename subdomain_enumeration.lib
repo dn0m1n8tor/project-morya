@@ -62,12 +62,12 @@ github-subdomains -d $DOMAIN -t $HOME/.config/github-subdomains/tokens.txt -o gi
 cat github-subdomains.txt | anew | tee -a allsubs10.txt
 wc -l allsubs10.txt | awk '{print $1 " subdomains founded by Github-subdomains"}'  | notify --silent
 
-printf "Running crobat\n" | notify --silent
-crobat -s $DOMAIN | anew allsubs11.txt
-wc -l allsubs11.txt | awk '{print $1 " subdomains founded by crobat"}' | notify --silent
+# printf "Running crobat\n" | notify --silent
+# crobat -s $DOMAIN | anew allsubs11.txt
+# wc -l allsubs11.txt | awk '{print $1 " subdomains founded by crobat"}' | notify --silent
 
 printf "Running tls.bufferover\n" | notify --silent
-curl "https://tls.bufferover.run/dns?q=$DOMAIN" | jq -r .Results'[]' | cut -d ',' -f3 | grep -F "$DOMAIN" | anew allsubs12.txt
+curl "https://tls.bufferover.run/dns?q=$DOMAIN" | jq -r .Results'[]' | rev | cut -d ',' -f1 | rev | sort -u | grep "\.$DOMAIN" | anew allsubs12.txt
 wc -l allsubs12.txt | awk '{print $1 " subdomains founded by tls.bufferover"}' | notify --silent
 
 printf "Running dns.bufferover\n" | notify --silent
