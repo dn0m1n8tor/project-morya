@@ -148,7 +148,19 @@ cd $HOME/tools/ && git clone https://github.com/maurosoria/dirsearch.git
 cd dirsearch
 pip3 install -r requirements.txt
 
+#==============================================================================================
+#Installing Parmspider
+
+cd $HOME/tools/ && git clone https://github.com/devanshbatham/ParamSpider
+cd ParamSpider
+pip3 install -r requirements.txt
+
+#==============================================================================================
+#Installing Parmspider
+
+cd $HOME/tools/ && https://github.com/tomnomnom/hacks.git
+cd hacks/kxss/ && go build 
+cp kxss /usr/local/bin
+
+#==============================================================================================
 printf "\n Tools are successfully Installed"
-
-
-
