@@ -136,5 +136,19 @@ go get -u github.com/tomnomnom/unfurl
 cd $HOME/tools/ && eval wget -N -c https://github.com/Edu4rdSHL/unimap/releases/download/0.4.0/unimap-linux
 mv unimap-linux /usr/local/bin/unimap
 
+#==============================================================================================
+#Installing Subjack
+
+go get github.com/haccer/subjack
+
+#==============================================================================================
+#Installing Dirsearch
+
+cd $HOME/tools/ && git clone https://github.com/maurosoria/dirsearch.git
+cd dirsearch
+pip3 install -r requirements.txt
+
 printf "\n Tools are successfully Installed"
+
+
 
