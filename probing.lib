@@ -2,10 +2,7 @@
 
 probing_Domains()
 {
-printf "=====================" | notify --silent
 printf "Running httpx on $DOMAIN" | notify --silent
-sleep 2
-printf "=====================" | notify --silent
 
 cd ${RUNNING_PATH} && mkdir httpx && cd httpx
 
@@ -13,8 +10,5 @@ cat ${RUNNING_PATH}/subdomains/actual_Subdomains.txt ${RUNNING_PATH}/subdomains/
 
 cat httpx.txt | awk '{print $1}' | tee probed.txt
 
-printf "==================" | notify --silent
 printf "Probing work is completed" | notify --silent
-sleep 2
-printf "==================" | notify --silent
 }
