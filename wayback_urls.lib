@@ -3,10 +3,7 @@
 wayback_Urls()
 
 {
-    printf "=================" | notify --silent
     printf "Collecting waybackurls" | notify --silent
-    sleep 2
-    printf "=================" | notify --silent
 
     cd ${RUNNING_PATH}
     mkdir wayback
@@ -29,9 +26,6 @@ wayback_Urls()
 	    cat urls.txt | grep "$i" | tee $i.txt
     done
     printf "Greping important keywords from urls.txt is done" | notify --silent
-
-    printf "=================" | notify --silent
+    
     printf "Waybackurls are collected" | notify --silent
-    sleep 2
-    printf "=================" | notify --silent
 }
