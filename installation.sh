@@ -164,4 +164,8 @@ cd hacks/kxss/ && go build
 cp kxss /usr/local/bin
 
 #==============================================================================================
+#Installing Dnsx
+go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
+
+#==============================================================================================
 printf "\n Tools are successfully Installed"
