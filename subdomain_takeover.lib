@@ -2,10 +2,7 @@
 
 subdomain_Takeover()
 {
-printf "=====================" | notify --silent
 printf "Running Subdomain takeover on $DOMAIN" | notify --silent
-sleep 2
-printf "=====================" | notify --silent
 
 cd ${RUNNING_PATH} && mkdir subdomain_takeover && cd subdomain_takeover
 cat ${RUNNING_PATH}/subdomains/actual_Subdomains.txt ${RUNNING_PATH}/subdomains/probed_common_ports.txt | unfurl domaims | tee subdomains.txt
@@ -25,8 +22,5 @@ subjack -w s3_takeovers.txt -t 100 -timeout 30 -o s3_subjack_results.txt -ssl
 wc -l s3_subjack_results.txt | awk '{print $1 " takeover are founded by subjack"}' | notify --silent
 printf "Scan for S3 Takeover completed\n" | notify --silent
 
-printf "==================" | notify --silent
 printf "Subdomain takeover work is completed" | notify --silent
-sleep 2
-printf "==================" | notify --silent
 }
