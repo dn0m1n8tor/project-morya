@@ -2,10 +2,7 @@
 
 nuclei_Scanning()
 {
-printf "=====================" | notify --silent
 printf "Running Nuclei on $DOMAIN" | notify --silent
-sleep 2
-printf "=====================" | notify --silent
 
 printf "Updating templates :D" | notify --silent
 nuclei --update-templates --silent
@@ -83,8 +80,6 @@ nuclei -l ${RUNNING_PATH}/httpx/probed.txt -silent -t ${HOME}/nuclei-templates/d
 printf "Scan for dns completed\n" | notify --silent
 wc -l output/dns.txt | awk '{print $1 " dns are founded by nuclei"}' | notify --silent
 
-printf "=====================" | notify --silent
 prinf "\nScan is completed" | notify --silent
-sleep 2
-printf "=====================" | notify --silent
+
 }
