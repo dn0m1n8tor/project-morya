@@ -50,7 +50,8 @@ mv findomain-linux /usr/local/bin/findomain
 #==============================================================================================
 #Installing sd-goo
 
-cd $HOME/tools/ && git clone https://github.com/darklotuskdb/sd-goo.git && cd sd-goo && chmod +x *.sh 
+cd $HOME/tools/ && git clone https://github.com/darklotuskdb/sd-goo.git && cd sd-goo && chmod +x *.sh
+mv sd-goo.sh /usr/local/bin
 
 #==============================================================================================
 #Installing shodan
