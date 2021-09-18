@@ -35,7 +35,7 @@ printf "Running sd-goo.sh (Domains from google search)\n" | notify --silent
 sd-goo.sh $DOMAIN | anew allsubs5.txt
 wc -l allsubs5.txt | awk '{print $1 " subdomains founded by sd-goo.sh"}' | notify --silent
 
-printf "---------Running Shodan to find---------\n" | notify --silent
+printf "Running Shodan\n" | notify --silent
 shodan_dorks=(ssl.cert.subject.cn:$DOMAIN hostname:$DOMAIN org:$DOMAIN)
 for i in "${shodan_dorks[@]}"; do
 	shodan search "$i" --fields ip_str,port --separator " " | awk '{print $1":"$2}' >>shodan_${DOMAIN}_ips.txt
