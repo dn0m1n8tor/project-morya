@@ -80,6 +80,6 @@ nuclei -l ${RUNNING_PATH}/httpx/probed.txt -silent -t ${HOME}/nuclei-templates/d
 printf "Scan for dns completed\n" | notify --silent
 wc -l output/dns.txt | awk '{print $1 " dns are founded by nuclei"}' | notify --silent
 
-prinf "\nScan is completed" | notify --silent
+printf "\nScan is completed" | notify --silent
 
 }
