@@ -8,7 +8,7 @@ printf "\nPlease enter a domain : "
 read DOMAIN
 export DOMAIN=$DOMAIN
 validate="$(python3 \
-  domain_validate.py)"
+  domain_validator.py)"
 
 if [ $validate -eq 1 ]
 then 
