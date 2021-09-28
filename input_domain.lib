@@ -6,19 +6,30 @@ input_Domain()
 printf "\n\n"
 printf "\nPlease enter a domain : "
 read DOMAIN
+export DOMAIN=$DOMAIN
+validate="$(python3 \
+  domain_validate.py)"
 
-printf "\nProject Morya started" | notify --silent
+if [ $validate -eq 1 ]
+then 
+  printf "\nProject Morya started" | notify --silent
 
-printf "Domain provide to us: $DOMAIN\n" | notify --silent
-TODAY=`date --date='+5 hour 30 minutes' '+%d/%b/%y %r'`
-sleep 2
-printf "Scanning is started at ${TODAY}" | notify --silent
-printf "Creating directory ${DOMAIN}_recon\n" | notify --silent
+  printf "Domain provide to us: $DOMAIN\n" | notify --silent
+  TODAY=`date --date='+5 hour 30 minutes' '+%d/%b/%y %r'`
+  sleep 2
+  printf "Scanning is started at ${TODAY}" | notify --silent
+  printf "Creating directory ${DOMAIN}_recon\n" | notify --silent
 
-Directory="${DOMAIN}_recon"
-mkdir $Directory
-cd $Directory
-mkdir vulnerability
-RUNNING_PATH=`pwd`
+  Directory="${DOMAIN}_recon"
+  mkdir $Directory
+  cd $Directory
+  mkdir vulnerability
+  RUNNING_PATH=`pwd`
+  
+else 
+  printf "Domain provided is not correct"
+  printg "Example : target.com"
+  exit 1
+fi
 
 }
