@@ -28,7 +28,7 @@ then
   
 else 
   printf "Domain provided is not correct"
-  printf "Example : target.com"
+  printf "\nExample : target.com"
   exit 1
 fi
 
