@@ -27,8 +27,8 @@ then
   RUNNING_PATH=`pwd`
   
 else 
-  printf "Domain provided is not correct"
-  printf "\nExample : target.com"
+  printf "Domain provided is not correct. Please enter valid domain"
+  printf "\n\nExample : target.com"
   exit 1
 fi
 
