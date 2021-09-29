@@ -18,14 +18,14 @@ def isValidDomain(str):
 	# If the string is empty
 	# return false
 	if (str == None):
-		printf(0)
+		print(0)
 
 	# Return if the string
 	# matched the ReGex
 	if(re.search(p, str)):
-		printf(1)
+		print(1)
 	else:
-		printf(0)
+		print(0)
 
 str = os.environ.get("DOMAIN")
 validate = isValidDomain(str)
