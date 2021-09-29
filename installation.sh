@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #============================================================================================
+echo "Installing Go language"
+
 #Download the Go binary
 wget https://golang.org/dl/go1.16.8.linux-amd64.tar.gz
 
@@ -18,159 +20,212 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
 #Source your terminal (or restart terminal)
 source ~/.bashrc 
 
+echo "Go language installed"
+
 #==============================================================================================
-#Installing pip3
+echo "Installing pip3"
 
 sudo apt-get install python3-pip
 
+echo "pip3 installed"
+
 #==============================================================================================
-#Installing subfinder
+echo "Installing subfinder"
 
 GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
 
+echo "Subfinder Installed"
+
 #==============================================================================================
-#Installing ctfr.py
+echo "Installing ctfr.py"
 
 cd $HOME/tools/ && git clone https://github.com/UnaPibaGeek/ctfr.git
 cd ctfr
 pip3 install -r requirements.txt
 
+echo "ctfr.py installed"
+
 #==============================================================================================
-#Installing Assestfinder
+echo "Installing Assestfinder"
 
 go get -u github.com/tomnomnom/assetfinder
 
+echo "Assetfinder installed"
+
 #==============================================================================================
-#Installing Findomain
+echo "Installing Findomain"
 
 cd $HOME/tools/ && wget https://github.com/findomain/findomain/releases/latest/download/findomain-linux
 chmod +x findomain-linux
 mv findomain-linux /usr/local/bin/findomain
 
+echo "Findomain installed"
+
 #==============================================================================================
-#Installing sd-goo
+echo "Installing sd-goo"
 
 cd $HOME/tools/ && git clone https://github.com/darklotuskdb/sd-goo.git && cd sd-goo && chmod +x *.sh
 mv sd-goo.sh /usr/local/bin
 
+echo "sd-goo installed"
+
 #==============================================================================================
-#Installing shodan
+echo "Installing shodan"
 
 pip install -U --user shodan
 
 #==============================================================================================
-#Installing anew
+echo "Installing anew"
 
 go get -u github.com/tomnomnom/anew
 
+echo "anew installed"
+
 #==============================================================================================
-#Installing amass
+echo "Installing amass"
 
 snap refresh
 sudo snap install amass
 
+echo "amass installed"
+
 #==============================================================================================
-#Installing gauplus
+echo "Installing gauplus"
 
 GO111MODULE=on go get -u -v github.com/bp0lr/gauplus
 
+echo "Gauplus installed"
 #==============================================================================================
-#Installing waybackurls
+echo "Installing waybackurls"
 
 go get github.com/tomnomnom/waybackurls
 
+echo "Waybackurls installed"
+
 #==============================================================================================
-#Installing github-subdomains
+echo "Installing github-subdomains"
 
 go get -u github.com/gwen001/github-subdomains
 
+echo "github-subdomains installed"
+
 #==============================================================================================
-#Installing Crobat
+echo "Installing Crobat"
 
 go get github.com/cgboal/sonarsearch/crobat
 
+echo "Crobat installed"
 #==============================================================================================
-#Installing Puredns
+echo "Installing Puredns"
 
 cd $HOME/tools/ && git clone https://github.com/blechschmidt/massdns.git
 cd massdns && make && make install
 
 GO111MODULE=on go get github.com/d3mondev/puredns/v2
 
+echo "Puredns installed"
+
 #==============================================================================================
-#Installing DNSCewl
+echo "Installing DNSCewl"
 
 cd $HOME/tools/ && wget https://github.com/codingo/DNSCewl/raw/master/DNScewl
 chmod 755 DNScewl
 mv DNScewl /usr/local/bin/DNScewl
 
+echo "DNSCewl installed"
+
 #==============================================================================================
-#Installing dnsvalidator
+echo "Installing dnsvalidator"
 
 cd $HOME/tools/ && git clone https://github.com/vortexau/dnsvalidator.git
 cd dnsvalidator/
 python3 setup.py install
 
+echo "DNSCewl installed"
+
 #==============================================================================================
-#Installing httpx
+echo "Installing httpx"
 
 GO111MODULE=on go get -v github.com/projectdiscovery/httpx/cmd/httpx
 
+echo "httpx installed"
+
 #==============================================================================================
-#Installing Gospider
+echo "Installing Gospider"
 
 GO111MODULE=on go get -u github.com/jaeles-project/gospider
 
+echo "Gospider installed"
+
 #==============================================================================================
-#Installing Notify
+echo "Installing Notify"
 
 GO111MODULE=on go get -v github.com/projectdiscovery/notify/cmd/notify
 
+echo "Notify installed"
 #==============================================================================================
-#Installing Unfurl
+echo "Installing Unfurl"
 
 go get -u github.com/tomnomnom/unfurl
 
+echo "Unfurl installed"
+
 #==============================================================================================
-#Installing Unimap
+echo "Installing Unimap"
 
 cd $HOME/tools/ && eval wget -N -c https://github.com/Edu4rdSHL/unimap/releases/download/0.4.0/unimap-linux
 mv unimap-linux /usr/local/bin/unimap
 
+echo "Unimap installed"
+
 #==============================================================================================
-#Installing Subjack
+echo "Installing Subjack"
 
 go get github.com/haccer/subjack
 
+echo "Subjack installed"
+
 #==============================================================================================
-#Installing Dirsearch
+echo "Installing Dirsearch"
 
 cd $HOME/tools/ && git clone https://github.com/maurosoria/dirsearch.git
 cd dirsearch
 pip3 install -r requirements.txt
 
+echo "Dirsearch installed"
+
 #==============================================================================================
-#Installing Parmspider
+echo "Installing Parmaspider"
 
 cd $HOME/tools/ && git clone https://github.com/devanshbatham/ParamSpider
 cd ParamSpider
 pip3 install -r requirements.txt
 
-#==============================================================================================
-#Installing Parmspider
+echo "Paramspider installed"
 
-cd $HOME/tools/ && https://github.com/tomnomnom/hacks.git
+#==============================================================================================
+echo "Installing kxss"
+
+cd $HOME/tools/ && git clone https://github.com/tomnomnom/hacks.git
 cd hacks/kxss/ && go build 
 cp kxss /usr/local/bin
 
-#==============================================================================================
-#Installing Dnsx
-go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
+echo "Kxss installed"
 
 #==============================================================================================
-#Installing jq
+echo "Installing Dnsx"
+
+go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
+
+echo "Dnsx installed"
+
+#==============================================================================================
+echo "Installing jq"
 
 apt install jq
 
+echo "JQ installed
+
 #==============================================================================================
+
 printf "\n Tools are successfully Installed"
