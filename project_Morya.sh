@@ -27,35 +27,35 @@ printf "
 
 while getopts ":smah" arg; do
   case "$arg" in
-  s)
-   input_Domain
-   subdomain_Enumeration
-   ;;
-  m)
-   input_Domain
-   subdomain_Enumeration
-   subdomain_Takeover
-   wayback_Urls
-   probing_Domains
-   nuclei_Scanning
-  ;;
-  a)
-   input_Domain
-   subdomain_Enumeration
-   subdomain_Takeover
-   wayback_Urls
-   probing_Domains
-   nuclei_Scanning
-   dirsearch_Fuzzing
-   xss_Hunter
-  ;;
-  h)
-  help_me
-  ;;
-  *)
-  printf "Please provide right argument for scan"
-  ;;
-  esac
-done
+          s )
+            input_Domain
+            subdomain_Enumeration
+            ;;
+          m )
+            input_Domain
+            subdomain_Enumeration
+            subdomain_Takeover
+            wayback_Urls
+            probing_Domains
+            nuclei_Scanning
+            ;;
+          a )
+            input_Domain
+            subdomain_Enumeration
+            subdomain_Takeover
+            wayback_Urls
+            probing_Domains
+            nuclei_Scanning
+            dirsearch_Fuzzing
+            xss_Hunter
+          ;;
+          \? | h )
+            help_me
+          ;;
+          * )
+            echo "Invalid Argument";
+          ;;
+          esac
+        done
 
-printf "Work is completed Anubhav" | notify --silent
+printf "Work is completed" | notify --silent
