@@ -1,6 +1,10 @@
 #!/bin/bash
 
 #============================================================================================
+echo "Installing required tools ....."
+echo ""
+echo ""
+
 echo "Installing Go language"
 
 #Download the Go binary
@@ -16,6 +20,7 @@ cp /usr/local/go/bin/go /usr/bin
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
+rm go1.16.8.linux-amd64.tar.gz
 
 #Source your terminal (or restart terminal)
 source ~/.bashrc 
