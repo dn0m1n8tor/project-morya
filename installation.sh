@@ -179,6 +179,7 @@ echo "Unfurl installed"
 echo "Installing Unimap"
 
 cd $HOME/tools/ && eval wget -N -c https://github.com/Edu4rdSHL/unimap/releases/download/0.4.0/unimap-linux
+chmod 755 unimap-linux
 mv unimap-linux /usr/local/bin/unimap
 
 echo "Unimap installed"
