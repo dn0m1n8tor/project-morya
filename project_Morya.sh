@@ -30,6 +30,7 @@ while getopts ":smah" arg; do
           subs )
             input_Domain
             subdomain_Enumeration
+            printf "Work is completed" | notify --silent
             ;;
           m )
             input_Domain
@@ -38,6 +39,7 @@ while getopts ":smah" arg; do
             wayback_Urls
             probing_Domains
             nuclei_Scanning
+            printf "Work is completed" | notify --silent
             ;;
           a )
             input_Domain
@@ -48,6 +50,7 @@ while getopts ":smah" arg; do
             nuclei_Scanning
             dirsearch_Fuzzing
             xss_Hunter
+            printf "Work is completed" | notify --silent
           ;;
           \? | h )
             help_me
@@ -57,5 +60,3 @@ while getopts ":smah" arg; do
           ;;
           esac
         done
-
-printf "Work is completed" | notify --silent
