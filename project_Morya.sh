@@ -27,7 +27,7 @@ printf "
 
 while getopts ":smah" arg; do
   case "$arg" in
-          s )
+          subs )
             input_Domain
             subdomain_Enumeration
             ;;
