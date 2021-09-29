@@ -2,14 +2,14 @@
 
 help_me()
 {
-help_print="Usage of Project Morya:
+help_print="Usage :
 
-  -s
-      for only subdomain enumeration
+  -subs
+       for only subdomain enumeration
   -m
-      for medium level scan [subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning]
+       for medium level scan [subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning]
   -a
-      for advance level scan [subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning, dirsearch, xss scan]
+       for advance level scan [subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning, dirsearch, xss scan]
 "
 
 printf "$help_print"
