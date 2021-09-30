@@ -4,6 +4,23 @@
 echo "Installing required tools ....."
 echo ""
 echo ""
+mkdir $HOME/tools/
+mkdir $HOME/wordlist/
+
+#============================================================================================
+echo "Updating the list of packages on your system"
+
+sudo apt update
+
+echo "Updated successfully"
+
+#============================================================================================
+echo "Installing python3"
+
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.8
 
 echo "Installing Go language"
 
@@ -254,5 +271,10 @@ GO111MODULE=on go get github.com/hahwul/dalfox/v2
 echo "Dalfox installed"
 
 #==============================================================================================
+echo "Downloading best-dns-wordlist.txt and permutation words"
 
+wget https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt -P $HOME/wordlist/
+wget https://gist.githubusercontent.com/six2dez/ffc2b14d283e8f8eff6ac83e20a3c4b4/raw -P $HOME/wordlist/ && mv $HOME/wordlist/raw $HOME/wordlist/permutations_list.txt
+
+#==============================================================================================
 printf "\n Tools are successfully Installed"
