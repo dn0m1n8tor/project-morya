@@ -38,8 +38,6 @@ $ ./install.sh
 ```
 This will display help for the tool. Here are all the switches it supports.
 
-To run the tool on a target, just use the following command.
-
 <details>
 <summary> 👉 Project Morya help menu 👈</summary>
 
@@ -58,13 +56,47 @@ Usage of ./project_MOrya:
 
 # Running Project Morya
 
+To run the tool on a target, just use the following command.
+
 1. Subdomain Enumeration : ``./project_Morya.sh -subs``
 2. Medium Level Recon : ``./project_Morya.sh -m``
 3. Advance Scope Recon : ``./project_Morya.sh -a``
 
+</details>
+
+
+# ⚙️  Config files 
+
+<details>
+<summary> 👉 Configure your files 👈</summary>
+
+### 1. Subfinder
+
+[Link of the Article :point_down:](https://sidxparab.gitbook.io/subdomain-enumeration-guide/passive-enumeration/passive-sources)<br>
+![image](https://user-images.githubusercontent.com/65735854/135441686-b93f9046-8e1e-4de2-a0a4-bce3985e6041.png)
+
+
+### 2. Amass
+
+[Link of the Article :point_down:](https://sidxparab.gitbook.io/subdomain-enumeration-guide/passive-enumeration/passive-sources)<br>
+![image](https://user-images.githubusercontent.com/65735854/135441523-d422087d-a3c4-4b9d-b2f2-524487cbf825.png)
+
+### 3. Github-subdomains
+
+[Link of the Article :point_down:](https://sidxparab.gitbook.io/subdomain-enumeration-guide/passive-enumeration/passive-sources)<br>
+![image](https://user-images.githubusercontent.com/65735854/135442501-9aea2b26-5fd1-48f3-a867-cbfbf6f14f1e.png)
+
+Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
+![image](https://user-images.githubusercontent.com/65735854/135442906-59ba9f2c-4737-46e6-9dda-8d5f95da6131.png)
+
+</details>
 
 # Tools Used
 
+<details>
+<summary> 👉 Tools used in project 👈</summary>
+
+```
  1. subfinder
  2. ctfr.py
  3. Assestfinder
@@ -95,7 +127,9 @@ Usage of ./project_MOrya:
 27. Nmap
 28. Dalfox
 29. Nuclei
- 
+```
+</details>
+
  # PR Notes
  
 1. If there is any GO Version/Path related issues, please do not create a PR for it.
@@ -103,4 +137,4 @@ Usage of ./project_MOrya:
 3. If there is any missing part in install.sh please create a PR for it.
 4. For specific tool related issue such as installation for X tool used by Project Morya is not successful, please do not create a PR for it. As this issue is required to be Raise to the specific Tool Owner.
 
-### Please feel free to contribute.
+### Please feel free to contribute....
