@@ -28,7 +28,7 @@ printf "
 
 while getopts ":smah" arg; do
   case "$arg" in
-          subs )
+          s )
             input_Domain
             subdomain_Enumeration
             printf "Work is completed" | notify --silent
