@@ -70,25 +70,33 @@ To run the tool on a target, just use the following command.
 <details>
 <summary> 👉 Configure your files 👈</summary>
 
-### 1. Subfinder
+### 1. Notify [ Most Important ] 
+
+### 2. Subfinder
 
 [Link of the Article :point_down:](https://sidxparab.gitbook.io/subdomain-enumeration-guide/passive-enumeration/passive-sources)<br>
 ![image](https://user-images.githubusercontent.com/65735854/135441686-b93f9046-8e1e-4de2-a0a4-bce3985e6041.png)
 
 
-### 2. Amass
+### 3. Amass
 
 [Link of the Article :point_down:](https://sidxparab.gitbook.io/subdomain-enumeration-guide/passive-enumeration/passive-sources)<br>
 ![image](https://user-images.githubusercontent.com/65735854/135441523-d422087d-a3c4-4b9d-b2f2-524487cbf825.png)
 
-### 3. Github-subdomains
+### 4. Github-subdomains
 
 [Link of the Article :point_down:](https://sidxparab.gitbook.io/subdomain-enumeration-guide/passive-enumeration/passive-sources)<br>
 ![image](https://user-images.githubusercontent.com/65735854/135442501-9aea2b26-5fd1-48f3-a867-cbfbf6f14f1e.png)
 
 Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
 ![image](https://user-images.githubusercontent.com/65735854/135442906-59ba9f2c-4737-46e6-9dda-8d5f95da6131.png)
+ 
+ ### 5. Shodan cli
+ 
+`shodan init YOUR_API_KEY`
 
+ ***If you have properly configured files then you are all set to use this framework***
+ 
 </details>
 
 # Tools Used
