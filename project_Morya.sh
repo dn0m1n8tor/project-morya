@@ -8,6 +8,7 @@ source ./probing.lib
 source ./dirsearch.lib
 source ./subdomain_takeover.lib
 source ./help_me.lib
+source ./port_scanning.lib
 
 printf "
  ███████████                   ███                   █████       ██████   ██████                                       
@@ -39,6 +40,7 @@ while getopts ":smah" arg; do
             wayback_Urls
             probing_Domains
             nuclei_Scanning
+            port_Scanning()
             printf "Work is completed" | notify --silent
             ;;
           a )
@@ -48,6 +50,7 @@ while getopts ":smah" arg; do
             wayback_Urls
             probing_Domains
             nuclei_Scanning
+            port_Scanning()
             dirsearch_Fuzzing
             xss_Hunter
             printf "Work is completed" | notify --silent
