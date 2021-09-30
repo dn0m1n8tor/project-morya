@@ -140,9 +140,8 @@ Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
 
  # PR Notes
  
-1. If there is any GO Version/Path related issues, please do not create a PR for it.
-2. Please create a PR for the Feature Request.
-3. If there is any missing part in install.sh please create a PR for it.
-4. For specific tool related issue such as installation for X tool used by Project Morya is not successful, please do not create a PR for it. As this issue is required to be Raise to the specific Tool Owner.
+1. Please create a PR for the Feature Request.
+2. If there is any missing part in install.sh please create a PR for it.
+3. For specific tool related issue such as installation for X tool used by Project Morya is not successful, please do not create a PR for it. As this issue is required to be Raise to the specific Tool Owner.
 
-### Please feel free to contribute....
+**Please feel free to _contribute_**....
