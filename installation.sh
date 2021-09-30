@@ -240,5 +240,12 @@ GO111MODULE=on go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
 
 echo "Naabu Installed"
 #==============================================================================================
+echo "Installing Nmap"
+
+sudo apt-get install nmap
+
+echo "Nmap installed"
+
+#==============================================================================================
 
 printf "\n Tools are successfully Installed"
