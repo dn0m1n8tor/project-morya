@@ -61,6 +61,6 @@ while getopts ":smah" arg; do
           * )
             echo "Invalid Argument";
           ;;
-          esac
-     done
+   esac
+done
 shift $((OPTIND -1))
