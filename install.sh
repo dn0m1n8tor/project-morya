@@ -247,5 +247,12 @@ sudo apt-get install nmap
 echo "Nmap installed"
 
 #==============================================================================================
+echo "Installing Dalfox"
+
+GO111MODULE=on go get github.com/hahwul/dalfox/v2
+
+echo "Dalfox installed"
+
+#==============================================================================================
 
 printf "\n Tools are successfully Installed"
