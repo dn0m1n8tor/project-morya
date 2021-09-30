@@ -230,8 +230,15 @@ echo "Installing jq"
 
 apt install jq
 
-echo "JQ installed
+echo "JQ installed"
 
+#==============================================================================================
+echo "Installing Naabu"
+
+sudo apt install -y libpcap-dev
+GO111MODULE=on go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
+
+echo "Naabu Installed"
 #==============================================================================================
 
 printf "\n Tools are successfully Installed"
