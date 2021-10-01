@@ -3,7 +3,9 @@
  -->
 <!-- ![project-morya1](https://user-images.githubusercontent.com/65735854/126045210-a7384346-252a-42a4-b58e-7ba040e69e7e.png)
  -->
- ![Banner](https://user-images.githubusercontent.com/65735854/135334459-a5bbe964-3f36-4fa8-9fcf-42c337662198.png)
+<!--  ![Banner](https://user-images.githubusercontent.com/65735854/135334459-a5bbe964-3f36-4fa8-9fcf-42c337662198.png) -->
+ ![banner](https://user-images.githubusercontent.com/65735854/135578912-4588db29-fbd1-4774-ae3c-8e8f99c6f602.png)
+
 
  
 Project Morya is just a collection of bash scripts that runs iteratively to carry out various tools and recon process & store output in an organized way. This Project was built to automate my recon process, and after working on this project for months, I thought to make Project Morya public.
