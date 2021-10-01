@@ -44,10 +44,10 @@ done
 cat shodan_subs.txt | anew | tee -a allsubs6.txt
 wc -l allsubs6.txt | awk '{print $1 " subdomains founded by Shodan"}'  | notify --silent
 
-# printf "Running Amass" | notify --silent
-# timeout 2m amass enum -passive -d $DOMAIN -config $HOME/.config/amass/config.ini -o amass.txt
-# cat amass.txt | anew | tee -a allsubs7.txt
-# wc -l allsubs7.txt | awk '{print $1 " subdomains founded by Amass"}'  | notify --silent
+printf "Running Amass" | notify --silent
+timeout 30m amass enum -passive -d $DOMAIN -config $HOME/.config/amass/config.ini -o amass.txt
+cat amass.txt | anew | tee -a allsubs7.txt
+wc -l allsubs7.txt | awk '{print $1 " subdomains founded by Amass"}'  | notify --silent
 
 printf "Running gauplus\n" | notify --silent
 gauplus -t 15 -random-agent -subs $DOMAIN | unfurl -u domains | anew allsubs8.txt
@@ -121,7 +121,7 @@ mkdir trash
 mv allsub* trash/
 mv gsd* trash/
 sudo mv unimap_logs/ trash/
-# mv amass.txt trash/
+mv amass.txt trash/
 mv resolvers.txt subfinder.txt crt.txt assetFinder.txt finddomain.txt shodan_subs.txt shodan_${DOMAIN}_ips.txt github-subdomains.txt puredns_bruteforce.txt puredns_permutation.txt probed_tmp_scrap.txt unimap_commonweb.txt resume.cfg trash/
 
 printf "\nSubdomain Enumeration Completed" | notify --silent
