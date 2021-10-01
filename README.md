@@ -46,7 +46,7 @@ This will display help for the tool. Here are all the switches it supports.
 ```
 Usage of ./project_MOrya:
  
-  -subs
+  -s
         for only subdomain enumeration
   -m
         for medium level scan [subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning, port_Scanning]
