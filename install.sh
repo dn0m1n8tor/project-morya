@@ -1,10 +1,7 @@
 #!/bin/bash
 
 #============================================================================================
-echo -e "\e[40;38;5;82m Hello World \e[0m"
-
 echo -e "\e[40;38;5;82m Installing required tools .....\e[0m\n"
-echo ""
 echo ""
 mkdir $HOME/tools/
 mkdir $HOME/wordlist/
