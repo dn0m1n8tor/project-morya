@@ -15,7 +15,7 @@ then
   printf "\nProject Morya started" | notify --silent
 
   printf "Domain provide to us: $DOMAIN\n" | notify --silent
-  TODAY=`date --date='+5 hour 30 minutes' '+%d/%b/%y %r'`
+  TODAY=`date '+%d/%b/%y %r'`
   sleep 2
   printf "Scanning is started at ${TODAY}" | notify --silent
   printf "Creating directory ${DOMAIN}_recon\n" | notify --silent
