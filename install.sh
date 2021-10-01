@@ -233,7 +233,8 @@ echo -e "\e[40;38;5;82m Paramspider installed \e[0m"
 echo -e "\e[40;38;5;82m Installing kxss \e[0m"
 
 cd $HOME/tools/ && git clone https://github.com/tomnomnom/hacks.git
-cd hacks/kxss/ && go build 
+cd hacks && go mod init example.com/m && go mod init
+cd kxss && go build
 cp kxss /usr/local/bin
 
 echo -e "\e[40;38;5;82m Kxss installed \e[0m"
