@@ -60,7 +60,7 @@ Usage of ./project_MOrya:
 
 To run the tool on a target, just use the following command.
 
-1. Subdomain Enumeration : ``./project_Morya.sh -subs``
+1. Subdomain Enumeration : ``./project_Morya.sh -s``
 2. Medium Level Recon : ``./project_Morya.sh -m``
 3. Advance Scope Recon : ``./project_Morya.sh -a``
 
