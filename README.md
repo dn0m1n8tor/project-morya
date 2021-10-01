@@ -72,6 +72,8 @@ To run the tool on a target, just use the following command.
 
 ### 1. Notify [ Most Important ] 
 
+I have written an article to setup Notify : https://anubhav-singh.medium.com/notification-system-for-your-bug-bounty-automation-7b13af1b7372
+
 ### 2. Subfinder
 
 [Link of the Article :point_down:](https://sidxparab.gitbook.io/subdomain-enumeration-guide/passive-enumeration/passive-sources)<br>
