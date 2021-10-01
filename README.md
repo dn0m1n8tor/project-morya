@@ -68,7 +68,7 @@ To run the tool on a target, just use the following command.
 
 </details>
 
-[![Youtube Video](https://user-images.githubusercontent.com/65735854/135603583-d28451e9-eea4-4ecf-af51-d01155594f7b.png)](https://www.youtube.com/watch?v=jQ8dZwTw8wQ)
+[![Youtube Video](https://user-images.githubusercontent.com/65735854/135603583-d28451e9-eea4-4ecf-af51-d01155594f7b.png)]( https://www.youtube.com/watch?v=vC6BOx1oKes)
 
 # ⚙️  Config files 
 
