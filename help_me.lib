@@ -4,7 +4,7 @@ help_me()
 {
 help_print="Usage :
 
-  -subs
+  -s
        for only subdomain enumeration
   -m
        for medium level scan [subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning]
