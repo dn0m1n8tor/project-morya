@@ -7,12 +7,12 @@ printf "Port Scanniing on $DOMAIN" | notify --silent
 
 cd ${RUNNING_PATH} && mkdir port_Scanning && cd port_Scanning
 cat ${RUNNING_PATH}/subdomains/actual_Subdomains.txt | naabu -silent | tee -a all_ports.txt
-sed 's/:/,/' all_port.txt
-cat all_ports.txt | grep -wv "443" | grep -wv "80" | tee naabu.txt
-python3 ${RUNNING_PATH}/../nmap-input-file.py naabu.txt nmap-sorted.txt
+sed 's/:/,/' all_ports.txt | tee nmap_ports.txt
+cat nmap_ports.txt | grep -wv "443" | grep -wv "80" | tee open_ports.txt
+python3 ${RUNNING_PATH}/../nmap-input-file.py open_ports.txt nmap-sorted.txt
 mkdir nmap-output
 bash ${RUNNING_PATH}/../nmap.sh nmap-sorted.txt nmap-output $domain.com advanced
-rm all_ports.txt nmap-sorted.txt
+rm all_ports.txt nmap_ports.txt nmap-sorted.txt
 
 printf "Port Scanniing Completed for $DOMAIN" | notify --silent
 
