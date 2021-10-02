@@ -284,5 +284,8 @@ GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 
 echo -e "\e[40;38;5;82m Nuclei Installed \e[0m\n"
 
+#Source your terminal (or restart terminal)
+source ~/.bashrc 
+
 #==============================================================================================
 echo -e "\e[40;38;5;82m Tools are successfully Installed \e[0m\n"
