@@ -45,8 +45,10 @@ nmap_run()
         echo "Scanning $IP : $ports : $4"
         if [ "$4" == "basic" ]; then
             nmap -Pn -n -v -sV --script-timeout 5s --script "default and safe" $IP -p$ports -oA $resultDir/nmap/$IP | tee -a $resultDir/log.txt
+            printf "\n===============================================================================================================================\n"
         elif [ "$4" == "advanced" ]; then
             nmap -Pn -n -v -sV --script-timeout 10s --script "default and safe" -A $IP -p$ports -oA $resultDir/nmap/$IP | tee -a $resultDir/log.txt
+            printf "\n===============================================================================================================================\n"
         else
             exit 1
         fi
