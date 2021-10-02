@@ -280,7 +280,11 @@ wget https://gist.githubusercontent.com/six2dez/ffc2b14d283e8f8eff6ac83e20a3c4b4
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing Nuclei \e[0m\n"
 
-GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+git clone https://github.com/projectdiscovery/nuclei.git; \
+cd nuclei/v2/cmd/nuclei; \
+go build; \
+mv nuclei /usr/local/bin/; \
+nuclei ;
 
 echo -e "\e[40;38;5;82m Nuclei Installed \e[0m\n"
 
