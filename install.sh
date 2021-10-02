@@ -278,4 +278,11 @@ wget https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt -P $HO
 wget https://gist.githubusercontent.com/six2dez/ffc2b14d283e8f8eff6ac83e20a3c4b4/raw -P $HOME/wordlist/ && mv $HOME/wordlist/raw $HOME/wordlist/permutations_list.txt
 
 #==============================================================================================
+echo -e "\e[40;38;5;82m Installing Nuclei \e[0m\n"
+
+GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+
+echo -e "\e[40;38;5;82m Nuclei Installed \e[0m\n"
+
+#==============================================================================================
 echo -e "\e[40;38;5;82m Tools are successfully Installed \e[0m\n"
