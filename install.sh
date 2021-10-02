@@ -32,15 +32,15 @@ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.8.linux-amd64.tar.gz
 #Copy the binary to be able to use for any user
 cp /usr/local/go/bin/go /usr/bin
 
-#Add these line to your terminal config file(.bashrc/.zshrc)
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
-export PATH="$HOME/go/bin:$PATH"
-rm go1.16.8.linux-amd64.tar.gz
+#Adding these line to your terminal config file(.bashrc/.zshrc)
+echo "export GOROOT=/usr/local/go" >> ~/.bashrc
+echo "export GOPATH=$HOME/go" >> ~/.bashrc
+echo "export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH" >> ~/.bashrc
+echo "export PATH=$HOME/go/bin:$PATH" >> ~/.bashrc
 
 #Source your terminal (or restart terminal)
 source ~/.bashrc 
+rm go1.16.8.linux-amd64.tar.gz
 
 echo -e "\e[40;38;5;82mGo language installed \e[0m\n"
 
@@ -280,11 +280,7 @@ wget https://gist.githubusercontent.com/six2dez/ffc2b14d283e8f8eff6ac83e20a3c4b4
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing Nuclei \e[0m\n"
 
-git clone https://github.com/projectdiscovery/nuclei.git; \
-cd nuclei/v2/cmd/nuclei; \
-go build; \
-mv nuclei /usr/local/bin/; \
-nuclei ;
+GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 
 echo -e "\e[40;38;5;82m Nuclei Installed \e[0m\n"
 
