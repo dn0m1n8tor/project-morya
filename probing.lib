@@ -9,7 +9,7 @@ cd ${RUNNING_PATH} && mkdir httpx && cd httpx
 
 cat ${RUNNING_PATH}/subdomains/actual_Subdomains.txt ${RUNNING_PATH}/subdomains/probed_common_ports.txt | httpx -status-code -title -content-length -follow-redirects -tech-detect | tee httpx_with_details.txt
 
-cat httpx.txt | awk '{print $1}' | tee httpx_probed.txt
+cat httpx.txt | awk '{print $1}' | tee probed.txt
 
 printf "Probing work is completed" | notify --silent
 
