@@ -18,6 +18,6 @@ if [ -s open_ports.txt ]; then
     rm all_ports.txt nmap_ports.txt nmap-sorted.txt
 fi
 
-printf "Port Scanniing Completed for $DOMAIN" | notify --silent
+printf "Port Scanniing Completed for $DOMAIN\n" | notify --silent
 
 }
