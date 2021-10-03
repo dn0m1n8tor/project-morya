@@ -48,7 +48,7 @@ while getopts ":smah" arg; do
             probing_Domains
             nuclei_Scanning
             port_Scanning
-            printf "Work is completed" | notify --silent
+            printf "Work is completed for $DOMAIN" | notify --silent
             ;;
           a )
             input_Domain
@@ -60,7 +60,7 @@ while getopts ":smah" arg; do
             port_Scanning
             dirsearch_Fuzzing
             xss_Hunter
-            printf "Work is completed" | notify --silent
+            printf "Work is completed for $DOMAIN" | notify --silent
           ;;
           \? | h )
             help_me
