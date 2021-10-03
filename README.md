@@ -118,8 +118,18 @@ Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
 
 #### Steps to use screen command
  
-1. type `screen` and press enter
-2. screen -ls 
+* To list active screens
+  - `screen -ls`
+* Name this session 
+  - `screen -S <name>`
+* If you see detach then to this
+ 	- `screen -r <number/name>` 
+ 	
+* If you see reattach then to this
+ 	- `screen -d <number/name>` =>		[ To detach your screen ]
+ 	- `screen -r <number/name>`	=> 	[ To reattach your screen ]
+ 
+ [![Youtube Video](https://user-images.githubusercontent.com/65735854/135767348-06dc50cc-fd5f-4e9b-be47-05ff391a0bd2.png)](https://www.youtube.com/watch?v=-gf6xPi6Clc)
 
 Further Reference : https://www.geeksforgeeks.org/screen-command-in-linux-with-examples/
 </details>
