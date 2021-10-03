@@ -13,7 +13,7 @@ cd ${RUNNING_PATH} && mkdir nuclei && cd nuclei && mkdir output
 printf "Scan for CVES started\n" | notify --silent
 nuclei -l ${RUNNING_PATH}/httpx/httpx.txt -silent -t ${HOME}/nuclei-templates/cves/ -o output/cves.txt
 printf "Scan for cves competed\n" | notify --silent
-wc -l cves.txt | awk '{print $1 " cves are founded by nuclei"}' | notify --silent
+wc -l output/cves.txt | awk '{print $1 " cves are founded by nuclei"}' | notify --silent
 
 printf "Scan for defualt login started"\n | notify --silent
 nuclei -l ${RUNNING_PATH}/httpx/httpx.txt -silent -t ${HOME}/nuclei-templates/defualt-logins/ -o output/defualt-logins.txt
