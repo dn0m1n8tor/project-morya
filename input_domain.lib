@@ -23,6 +23,7 @@ then
   Directory="${DOMAIN}_recon"
   mkdir $Directory
   cd $Directory
+  mkdir vulnerability
   RUNNING_PATH=`pwd`
   
 else 
