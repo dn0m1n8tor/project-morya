@@ -106,7 +106,24 @@ Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
  
 </details>
 
-# Tools Used
+# :airplane: AutoFlight mode
+
+<details>
+<summary> 👉 Using screen command 👈</summary><br>
+
+> screen command in Linux provides the ability to launch and use multiple shell sessions from a single ssh session. When a process is started with ‘screen’, 
+> the process can be detached from session & then can reattach the session at a later time. When the session is detached, the process that was originally 
+> started from the screen is still running and managed by the screen itself. The process can then re-attach the session at a later time, and the terminals
+> are still there, the way it was left
+
+#### Steps to use screen command
+ 
+1. type `screen` and press enter
+2. screen -ls 
+ 
+</details>
+
+# :nut_and_bolt: Tools Used
 
 <details>
 <summary> 👉 Tools used in project 👈</summary>
