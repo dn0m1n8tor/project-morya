@@ -14,13 +14,13 @@ Please feel free to improve it in any way you can. There is no secret involved, 
 
 Currently this tools supports performing recon for:
  
- 1.  Subdomain Enumeration: <br>
+ 1.  `Subdomain Enumeration:` <br>
       It just enumerate subdomain 
       
- 2.  Medium Level Scan: <br>
+ 2.  `Medium Level Scan:` <br>
       It scan's for [ subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning, port_Scanning ]
       
- 3.  Advance level Scan: <br>
+ 3.  `Advance level Scan:` <br>
       It scan's for [ subdomain Enumeration, subdomain Takeover, wayback_Urls, probing_Domains, nuclei_Scanning, port_Scanning, dirsearch, xss scan ] 
 
 # Installation Instructions
@@ -120,7 +120,8 @@ Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
  
 1. type `screen` and press enter
 2. screen -ls 
- 
+
+Further Reference : https://www.geeksforgeeks.org/screen-command-in-linux-with-examples/
 </details>
 
 # :nut_and_bolt: Tools Used
