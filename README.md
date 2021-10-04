@@ -28,7 +28,7 @@ Currently this tools supports performing recon for:
 ```
 Note : Run this commands as a root user
 
-$ git clone <repo>
+$ git clone https://github.com/anubhavsinghhacker/project-morya.git
 $ cd project-morya
 $ chmod +x install.sh project_Morya.sh
 $ ./install.sh
