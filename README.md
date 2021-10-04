@@ -101,8 +101,6 @@ Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
  ### 5. Shodan cli
  
 `shodan init YOUR_API_KEY`
-
- ***If you have properly configured files then you are all set to use this framework***
  
  ### 6. XXS hunter domain
  
@@ -111,6 +109,8 @@ Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
     - example : https://helloanubhav.xss.ht
  3. Now Hard code this domain in `xss_hunter.lib`
     ![xss hunter](https://user-images.githubusercontent.com/65735854/135838531-892e3c05-df94-4ada-bb6f-1055cdaaadea.png)
+ 
+ ***If you have properly configured files then you are all set to use this framework***
  
 </details>
 
@@ -184,6 +184,7 @@ Further Reference : https://www.geeksforgeeks.org/screen-command-in-linux-with-e
  # PR Notes
  
 1. Please create a PR for the Feature Request.
+2. If you want to add your method/tool to project than make PR for it.
 2. If there is any missing part in install.sh please create a PR for it.
 3. For specific tool related issue such as installation for X tool used by Project Morya is not successful, please do not create a PR for it. As this issue is required to be Raise to the specific Tool Owner.
 
