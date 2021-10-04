@@ -104,6 +104,14 @@ Note : Keep atleast 5 tokens in `$HOME/.config/github-subdomains/tokens.txt`
 
  ***If you have properly configured files then you are all set to use this framework***
  
+ ### 6. XXS hunter domain
+ 
+ 1. Signup on [xsshunter.com](xsshunter.com)
+ 2. Generate your custom domain
+    - example : https://helloanubhav.xss.ht
+ 3. Now Hard code this domain in `xss_hunter.lib`
+    ![xss hunter](https://user-images.githubusercontent.com/65735854/135838531-892e3c05-df94-4ada-bb6f-1055cdaaadea.png)
+ 
 </details>
 
 # :airplane: AutoFlight mode
