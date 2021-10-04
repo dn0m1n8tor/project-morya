@@ -20,10 +20,11 @@ wayback_Urls()
     cat wayback.txt gau.txt | sort -u | tee urls.txt
     wc -l urls.txt | awk '{print $1 " total URLS are founded by wayback and gauplus"}' | notify --silent
     
+    mkdir imp_wayback
     printf "Greping important keywords from urls.txt" | notify --silent
     wayback_keywords=(password secret token access pwd api \.json$ =http =%2F =/ email= @ ey \.txt$ aws admin \.js$ config dashboard oauth)
     for i in "${wayback_keywords[@]}";do
-	    cat urls.txt | grep "$i" | tee $i.txt
+	    cat urls.txt | grep "$i" | tee imp_wayback/$i.txt
     done
     printf "Greping important keywords from urls.txt is done" | notify --silent
     
