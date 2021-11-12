@@ -94,7 +94,7 @@ echo -e "\e[40;38;5;82m sd-goo installed \e[0m\n"
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing shodan \e[0m\n"
 
-pip install -U --user shodan
+apt install python3-shodan -y
 
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing anew \e[0m\n"
