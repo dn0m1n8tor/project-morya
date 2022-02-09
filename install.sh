@@ -24,10 +24,10 @@ sudo apt-get install python3.8
 echo -e "\e[40;38;5;82m Installing Go language \e[0m\n"
 
 #Download the Go binary
-wget https://golang.org/dl/go1.16.8.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
 
 #Remove previous golang installation and extract the new one
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.8.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
 
 #Copy the binary to be able to use for any user
 cp /usr/local/go/bin/go /usr/bin
@@ -37,17 +37,19 @@ echo "export GOROOT=/usr/local/go" >> ~/.bashrc
 echo "export GOPATH=$HOME/go" >> ~/.bashrc
 echo "export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH" >> ~/.bashrc
 echo "export PATH=$HOME/go/bin:$PATH" >> ~/.bashrc
+echo "export PATH=$PATH:/snap/bin" >> ~/.bashrc
 
 #Source your terminal (or restart terminal)
 source ~/.bashrc 
-rm go1.16.8.linux-amd64.tar.gz
+rm go1.17.3.linux-amd64.tar.gz
 
 echo -e "\e[40;38;5;82mGo language installed \e[0m\n"
 
 #==============================================================================================
-echo -e "\e[40;38;5;82m Installing pip3 \e[0m\n"
+echo -e "\e[40;38;5;82m Installing pip3  and snap Package Manager \e[0m\n"
 
 sudo apt-get install python3-pip
+sudo apt install snapd
 
 echo -e "\e[40;38;5;82m pip3 installed \e[0m\n"
 
