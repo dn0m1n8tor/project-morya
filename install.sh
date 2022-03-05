@@ -33,8 +33,8 @@ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
 cp /usr/local/go/bin/go /usr/bin
 
 #Adding these line to your terminal config file(.bashrc/.zshrc)
-printf 'export GOPATH=$HOME/go' >> ~/.bashrc
-printf 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.bashrc
+printf 'export GOPATH=$HOME/go\n' >> ~/.bashrc
+printf 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin\n' >> ~/.bashrc
 
 #Source your terminal (or restart terminal)
 source ~/.bashrc
