@@ -24,10 +24,10 @@ sudo apt-get install python3.8
 echo -e "\e[40;38;5;82m Installing Go language \e[0m\n"
 
 #Download the Go binary
-wget https://golang.org/dl/go1.16.8.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
 
 #Remove previous golang installation and extract the new one
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.8.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
 
 #Copy the binary to be able to use for any user
 cp /usr/local/go/bin/go /usr/bin
@@ -37,24 +37,26 @@ echo "export GOROOT=/usr/local/go" >> ~/.bashrc
 echo "export GOPATH=$HOME/go" >> ~/.bashrc
 echo "export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH" >> ~/.bashrc
 echo "export PATH=$HOME/go/bin:$PATH" >> ~/.bashrc
+echo "export PATH=$PATH:/snap/bin" >> ~/.bashrc
 
 #Source your terminal (or restart terminal)
 source ~/.bashrc 
-rm go1.16.8.linux-amd64.tar.gz
+rm go1.17.3.linux-amd64.tar.gz
 
 echo -e "\e[40;38;5;82mGo language installed \e[0m\n"
 
 #==============================================================================================
-echo -e "\e[40;38;5;82m Installing pip3 \e[0m\n"
+echo -e "\e[40;38;5;82m Installing pip3  and snap Package Manager \e[0m\n"
 
 sudo apt-get install python3-pip
+sudo apt install snapd
 
 echo -e "\e[40;38;5;82m pip3 installed \e[0m\n"
 
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing subfinder \e[0m\n"
 
-GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
 echo -e "\e[40;38;5;82m Subfinder Installed \e[0m\n"
 
@@ -82,7 +84,7 @@ chmod +x findomain-linux
 mv findomain-linux /usr/local/bin/findomain
 
 echo -e "\e[40;38;5;82m Findomain installed \e[0m\n"
-
+#General Use: 
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing sd-goo \e[0m\n"
 
@@ -114,7 +116,7 @@ echo -e "\e[40;38;5;82m amass installed \e[0m\n"
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing gauplus \e[0m\n"
 
-GO111MODULE=on go get -u -v github.com/bp0lr/gauplus
+go install github.com/bp0lr/gauplus@latest
 
 echo -e "\e[40;38;5;82m Gauplus installed \e[0m\n"
 #==============================================================================================
@@ -143,7 +145,7 @@ echo -e "\e[40;38;5;82m Installing Puredns \e[0m\n"
 cd $HOME/tools/ && git clone https://github.com/blechschmidt/massdns.git
 cd massdns && make && make install
 
-GO111MODULE=on go get github.com/d3mondev/puredns/v2
+go install github.com/d3mondev/puredns/v2@latest
 
 echo -e "\e[40;38;5;82m Puredns installed \e[0m\n"
 
@@ -155,7 +157,7 @@ chmod 755 DNScewl
 mv DNScewl /usr/local/bin/DNScewl
 
 echo -e "\e[40;38;5;82m DNSCewl installed \e[0m\n"
-
+#Gerneral Use:DNSCewl -tL targets.txt -p append.txt
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing dnsvalidator \e[0m\n"
 
@@ -164,11 +166,11 @@ cd dnsvalidator/
 python3 setup.py install
 
 echo -e "\e[40;38;5;82m DNSCewl installed \e[0m\n"
-
+#general Use: dnsvalidator -tL https://public-dns.info/nameservers.txt -threads 20 -o resolvers.txt
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing httpx \e[0m\n"
 
-GO111MODULE=on go get -v github.com/projectdiscovery/httpx/cmd/httpx
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 echo -e "\e[40;38;5;82m httpx installed \e[0m\n"
 
@@ -182,7 +184,7 @@ echo -e "\e[40;38;5;82m Gospider installed \e[0m\n"
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing Notify \e[0m\n"
 
-GO111MODULE=on go get -v github.com/projectdiscovery/notify/cmd/notify
+go install -v github.com/projectdiscovery/notify/cmd/notify@latest
 
 echo -e "\e[40;38;5;82m Notify installed \e[0m\n"
 #==============================================================================================
@@ -239,7 +241,7 @@ echo -e "\e[40;38;5;82m Kxss installed \e[0m\n"
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing Dnsx \e[0m\n"
 
-go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
+go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 
 echo -e "\e[40;38;5;82m Dnsx installed \e[0m\n"
 
@@ -254,20 +256,19 @@ echo -e "\e[40;38;5;82m JQ installed \e[0m\n"
 echo -e "\e[40;38;5;82m Installing Naabu \e[0m\n"
 
 sudo apt install -y libpcap-dev
-GO111MODULE=on go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
+go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 
 echo -e "\e[40;38;5;82m Naabu Installed \e[0m\n"
-#==============================================================================================
+#============================================================================
 echo -e "\e[40;38;5;82m Installing Nmap \e[0m\n"
 
-sudo apt-get install nmap -y 
+sudo apt-get install nmap -y
 
 echo -e "\e[40;38;5;82m Nmap installed \e[0m\n"
-
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing Dalfox \e[0m\n"
 
-GO111MODULE=on go get github.com/hahwul/dalfox/v2
+go install github.com/hahwul/dalfox/v2@latest
 
 echo -e "\e[40;38;5;82m Dalfox installed \e[0m\n"
 
@@ -280,7 +281,7 @@ wget https://gist.githubusercontent.com/six2dez/ffc2b14d283e8f8eff6ac83e20a3c4b4
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing Nuclei \e[0m\n"
 
-GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
 echo -e "\e[40;38;5;82m Nuclei Installed \e[0m\n"
 
