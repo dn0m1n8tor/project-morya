@@ -33,14 +33,11 @@ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
 cp /usr/local/go/bin/go /usr/bin
 
 #Adding these line to your terminal config file(.bashrc/.zshrc)
-echo "export GOROOT=/usr/local/go" >> ~/.bashrc
-echo "export GOPATH=$HOME/go" >> ~/.bashrc
-echo "export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH" >> ~/.bashrc
-echo "export PATH=$HOME/go/bin:$PATH" >> ~/.bashrc
-echo "export PATH=$PATH:/snap/bin" >> ~/.bashrc
+printf 'export GOPATH=$HOME/go' >> ~/.bashrc
+printf 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.bashrc
 
 #Source your terminal (or restart terminal)
-source ~/.bashrc 
+source ~/.bashrc
 rm go1.17.3.linux-amd64.tar.gz
 
 echo -e "\e[40;38;5;82mGo language installed \e[0m\n"
@@ -136,7 +133,7 @@ echo -e "\e[40;38;5;82m github-subdomains installed \e[0m\n"
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing Crobat \e[0m\n"
 
-go get github.com/cgboal/sonarsearch/crobat
+go get github.com/cgboal/sonarsearch/cmd/crobat
 
 echo -e "\e[40;38;5;82m Crobat installed \e[0m\n"
 #==============================================================================================
@@ -286,7 +283,7 @@ go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 echo -e "\e[40;38;5;82m Nuclei Installed \e[0m\n"
 
 #Source your terminal (or restart terminal)
-source ~/.bashrc 
+source ~/.bashrc
 
 #==============================================================================================
 echo -e "\e[40;38;5;82m Tools are successfully Installed \e[0m\n"
