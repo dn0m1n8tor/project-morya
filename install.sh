@@ -19,7 +19,7 @@ echo -e "\e[40;38;5;82m Installing python3 \e[0m\n"
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
-sudo apt-get install python3.8
+sudo apt-get install python3.8 -y
 
 echo -e "\e[40;38;5;82m Installing Go language \e[0m\n"
 
@@ -45,7 +45,7 @@ echo -e "\e[40;38;5;82mGo language installed \e[0m\n"
 #==============================================================================================
 echo -e "\e[40;38;5;82m Installing pip3  and snap Package Manager \e[0m\n"
 
-sudo apt-get install python3-pip
+sudo apt-get install python3-pip -y
 sudo apt install snapd
 
 echo -e "\e[40;38;5;82m pip3 installed \e[0m\n"
